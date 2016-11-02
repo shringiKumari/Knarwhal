@@ -3,7 +3,7 @@ using System.Collections;
 
 public class NarwhalMovement : MonoBehaviour {
 	public float speed = 10;
-
+	public Transform target;
 	// Use this for initialization
 	void Start () {
 	
@@ -40,5 +40,7 @@ public class NarwhalMovement : MonoBehaviour {
 		}
 		//Debug.Log(Input.GetAxis("RightJoystickX"));
 		transform.Rotate (Vector3.forward * Input.GetAxis("RightJoystickX") * speed);
+		float angle = Quaternion.Angle(transform.rotation, target.rotation);
+		Debug.Log (angle);
 	}
 }
