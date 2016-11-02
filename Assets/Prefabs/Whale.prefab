@@ -21,6 +21,7 @@ GameObject:
   - 4: {fileID: 4000013892223062}
   - 212: {fileID: 212000012332809382}
   - 114: {fileID: 114000012591789598}
+  - 114: {fileID: 114000010927894468}
   m_Layer: 0
   m_Name: Whale
   m_TagString: Untagged
@@ -41,6 +42,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
+--- !u!114 &114000010927894468
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000012527992210}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 755c62e2905fb4b0187664258cb32085, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 10
 --- !u!114 &114000012591789598
 MonoBehaviour:
   m_ObjectHideFlags: 1

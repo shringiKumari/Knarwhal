@@ -144,6 +144,11 @@ Prefab:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 114000010927894468, guid: 5ea7cda290f5840ff8ad120a99992d65,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 5ea7cda290f5840ff8ad120a99992d65, type: 2}
   m_IsPrefabParent: 0
@@ -195,6 +200,11 @@ Prefab:
     - target: {fileID: 1000012527992210, guid: 5ea7cda290f5840ff8ad120a99992d65, type: 2}
       propertyPath: m_Name
       value: Whale Thringi
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000012591789598, guid: 5ea7cda290f5840ff8ad120a99992d65,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 5ea7cda290f5840ff8ad120a99992d65, type: 2}
