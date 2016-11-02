@@ -23,7 +23,25 @@ public class NarwhalMovement : MonoBehaviour {
 		if (Input.GetButton("Right")) {
 			transform.position += new Vector3 (+1, 0, 0) * Time.deltaTime;
 		}
-		Debug.Log(Input.GetAxis("RightJoystickX"));
+		if (Input.GetButton("A")) {
+			Debug.Log ("A");
+		}
+		if (Input.GetButton("B")) {
+			Debug.Log ("B");
+		}
+		if (Input.GetButton("X")) {
+			Debug.Log ("X");
+		}
+		if (Input.GetButton("Y")) {
+			Debug.Log ("Y");
+		}
+		if (Input.GetButton("RB")) {
+			Debug.Log ("RB");
+		}
+		if (Input.GetButton("RB_2")) {
+			Debug.Log ("RB2");
+		}
+		//Debug.Log(Input.GetAxis("RightJoystickX"));
 		transform.Rotate (Vector3.forward * Input.GetAxis("RightJoystickX") * speed);
 	}
 }
