@@ -109,8 +109,8 @@ Rigidbody2D:
   m_GameObject: {fileID: 63666455}
   m_UseAutoMass: 0
   m_Mass: 0.0001
-  m_LinearDrag: 0
-  m_AngularDrag: 0
+  m_LinearDrag: 10
+  m_AngularDrag: 1
   m_GravityScale: 0
   m_IsKinematic: 0
   m_Interpolate: 0
@@ -228,6 +228,11 @@ Prefab:
       propertyPath: hornAngle
       value: 45
       objectReference: {fileID: 0}
+    - target: {fileID: 114000012591789598, guid: 5ea7cda290f5840ff8ad120a99992d65,
+        type: 2}
+      propertyPath: thrust
+      value: 0.05
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 5ea7cda290f5840ff8ad120a99992d65, type: 2}
   m_IsPrefabParent: 0
@@ -250,8 +255,8 @@ Rigidbody2D:
   m_GameObject: {fileID: 344514510}
   m_UseAutoMass: 0
   m_Mass: 0.0001
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
+  m_LinearDrag: 10
+  m_AngularDrag: 1
   m_GravityScale: 0
   m_IsKinematic: 0
   m_Interpolate: 0
