@@ -32,7 +32,7 @@ public class NarwhalMovement : MonoBehaviour {
 		if (Input.GetButton(dash)) {
 			Debug.Log ("Dash" + dash);
 			Vector3 ReferenceVector = Quaternion.Euler(0, 0, hornAngle) * transform.right;
-			rb.AddForce (ReferenceVector * thrust);
+			rb.AddForce(ReferenceVector * thrust, ForceMode2D.Impulse);
 		}
 
 		if (Input.GetButton(spout)) {
