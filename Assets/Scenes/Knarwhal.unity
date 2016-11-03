@@ -233,6 +233,11 @@ Prefab:
       propertyPath: thrust
       value: 0.1
       objectReference: {fileID: 0}
+    - target: {fileID: 114000012591789598, guid: 5ea7cda290f5840ff8ad120a99992d65,
+        type: 2}
+      propertyPath: movementThrust
+      value: 0.4
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 5ea7cda290f5840ff8ad120a99992d65, type: 2}
   m_IsPrefabParent: 0
@@ -487,6 +492,11 @@ Prefab:
         type: 2}
       propertyPath: thrust
       value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000012591789598, guid: 5ea7cda290f5840ff8ad120a99992d65,
+        type: 2}
+      propertyPath: movementThrust
+      value: 0.4
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 0}

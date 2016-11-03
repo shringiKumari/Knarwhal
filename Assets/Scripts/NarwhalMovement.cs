@@ -10,6 +10,7 @@ public class NarwhalMovement : MonoBehaviour {
 	public string spout;
 	public float hornAngle;
 	public float thrust;
+	public float movementThrust;
 
 	public Rigidbody2D rb;
 
@@ -25,7 +26,8 @@ public class NarwhalMovement : MonoBehaviour {
 		if (Input.GetButton(move)) {
 
 			Vector3 ReferenceVector = Quaternion.Euler(0, 0, hornAngle) * transform.right;
-			transform.position += ReferenceVector * Time.fixedDeltaTime * translationSpeed;
+			//transform.position += ReferenceVector * Time.fixedDeltaTime * translationSpeed;
+			rb.AddForce(ReferenceVector * movementThrust);
 			//Debug.Log(move);
 		}
 
