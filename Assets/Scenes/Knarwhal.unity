@@ -117,6 +117,17 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &63666460
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 63666455}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4aaf13c0a24454c23979491fd5f8aef4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &266014515
 Prefab:
   m_ObjectHideFlags: 0
@@ -301,6 +312,10 @@ Prefab:
       propertyPath: m_Name
       value: AndyCollider
       objectReference: {fileID: 0}
+    - target: {fileID: 1000010894559876, guid: 1ac8b25cce4f446bbb56142580b9fafc, type: 2}
+      propertyPath: m_TagString
+      value: AndyBody
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1ac8b25cce4f446bbb56142580b9fafc, type: 2}
   m_IsPrefabParent: 0
@@ -317,7 +332,7 @@ PolygonCollider2D:
   m_GameObject: {fileID: 435815109}
   m_Enabled: 1
   m_Density: 50
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: f9d0fa98e6f8145bd95c2ba1276ae104, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_Offset: {x: 0, y: 0}
@@ -458,6 +473,10 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: m_Enabled
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1000012527992210, guid: 5ea7cda290f5840ff8ad120a99992d65, type: 2}
+      propertyPath: m_TagString
+      value: Untagged
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 0}
@@ -709,6 +728,10 @@ Prefab:
       propertyPath: m_Name
       value: ThringiCollider
       objectReference: {fileID: 0}
+    - target: {fileID: 1000010895432362, guid: d33af5742f88945399e69a0fbf91fa1e, type: 2}
+      propertyPath: m_TagString
+      value: ThringiBody
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d33af5742f88945399e69a0fbf91fa1e, type: 2}
   m_IsPrefabParent: 0
@@ -725,7 +748,7 @@ PolygonCollider2D:
   m_GameObject: {fileID: 1783025505}
   m_Enabled: 1
   m_Density: 50
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: f9d0fa98e6f8145bd95c2ba1276ae104, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_Offset: {x: 0, y: 0}

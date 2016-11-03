@@ -9,7 +9,16 @@ public class NarwhalScoring : MonoBehaviour {
 	}
 
 	void OnTriggerEnter2D(Collider2D other) {
-		Debug.Log ("hit point");
+
+		if (other.tag == "AndyBody") {
+			Debug.Log ("Point for Thringi");
+		}
+
+		if (other.tag == "ThringiBody") {
+			Debug.Log ("Point for Andy");
+		}
+
+		Debug.Log ("no points :<");
 	}
 	
 	// Update is called once per frame
