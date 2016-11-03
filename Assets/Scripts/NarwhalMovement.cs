@@ -17,16 +17,11 @@ public class NarwhalMovement : MonoBehaviour {
 	// Update is called once per frame
 	void FixedUpdate () {
 		transform.Rotate (Vector3.forward * Input.GetAxis(rotate) * rotationSpeed);
-		//float angle = transform.rotation.eulerAngles.z;
-		//float angle = Quaternion.Angle(transform.rotation, Quaternion.identity);
 
 		if (Input.GetButton(move)) {
 
 			Vector3 ReferenceVector = Quaternion.Euler(0, 0, hornAngle) * transform.right;
 			transform.position += ReferenceVector * Time.fixedDeltaTime * translationSpeed;
-			//transform.position += new Vector3(Mathf.Cos(angle), Mathf.Sin(angle),0) * Time.fixedDeltaTime * translationSpeed;
-			//Debug.Log ("cos"+Mathf.Cos(angle));
-			//Debug.Log ("sin"+Mathf.Sin(angle));
 			Debug.Log(move);
 		}
 
