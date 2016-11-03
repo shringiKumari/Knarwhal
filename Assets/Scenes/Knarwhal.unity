@@ -108,9 +108,9 @@ Rigidbody2D:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 63666455}
   m_UseAutoMass: 0
-  m_Mass: 0.0001
-  m_LinearDrag: 0
-  m_AngularDrag: 0
+  m_Mass: 0.001
+  m_LinearDrag: 20
+  m_AngularDrag: 20
   m_GravityScale: 0
   m_IsKinematic: 0
   m_Interpolate: 0
@@ -206,17 +206,17 @@ Prefab:
     - target: {fileID: 114000012591789598, guid: 5ea7cda290f5840ff8ad120a99992d65,
         type: 2}
       propertyPath: move
-      value: A
+      value: MoveAndyKeyboard
       objectReference: {fileID: 0}
     - target: {fileID: 114000012591789598, guid: 5ea7cda290f5840ff8ad120a99992d65,
         type: 2}
       propertyPath: rotate
-      value: LeftJoystickX
+      value: Horizontal
       objectReference: {fileID: 0}
     - target: {fileID: 114000012591789598, guid: 5ea7cda290f5840ff8ad120a99992d65,
         type: 2}
       propertyPath: dash
-      value: X
+      value: DashAndyKeyboard
       objectReference: {fileID: 0}
     - target: {fileID: 114000012591789598, guid: 5ea7cda290f5840ff8ad120a99992d65,
         type: 2}
@@ -227,6 +227,11 @@ Prefab:
         type: 2}
       propertyPath: hornAngle
       value: 45
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000012591789598, guid: 5ea7cda290f5840ff8ad120a99992d65,
+        type: 2}
+      propertyPath: thrust
+      value: 0.7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 5ea7cda290f5840ff8ad120a99992d65, type: 2}
@@ -249,9 +254,9 @@ Rigidbody2D:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 344514510}
   m_UseAutoMass: 0
-  m_Mass: 0.0001
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
+  m_Mass: 0.001
+  m_LinearDrag: 20
+  m_AngularDrag: 20
   m_GravityScale: 0
   m_IsKinematic: 0
   m_Interpolate: 0
@@ -448,17 +453,17 @@ Prefab:
     - target: {fileID: 114000012591789598, guid: 5ea7cda290f5840ff8ad120a99992d65,
         type: 2}
       propertyPath: move
-      value: A_2
+      value: MoveThringiKeyboard
       objectReference: {fileID: 0}
     - target: {fileID: 114000012591789598, guid: 5ea7cda290f5840ff8ad120a99992d65,
         type: 2}
       propertyPath: rotate
-      value: LeftJoystickX_2
+      value: Vertical
       objectReference: {fileID: 0}
     - target: {fileID: 114000012591789598, guid: 5ea7cda290f5840ff8ad120a99992d65,
         type: 2}
       propertyPath: dash
-      value: X_2
+      value: DashThringiKeyboard
       objectReference: {fileID: 0}
     - target: {fileID: 114000012591789598, guid: 5ea7cda290f5840ff8ad120a99992d65,
         type: 2}
@@ -477,6 +482,11 @@ Prefab:
     - target: {fileID: 1000012527992210, guid: 5ea7cda290f5840ff8ad120a99992d65, type: 2}
       propertyPath: m_TagString
       value: Untagged
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000012591789598, guid: 5ea7cda290f5840ff8ad120a99992d65,
+        type: 2}
+      propertyPath: thrust
+      value: 0.7
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 0}
