@@ -9,9 +9,13 @@ public class NarwhalMovement : MonoBehaviour {
 	public string dash;
 	public string spout;
 	public float hornAngle;
+	public float thrust;
+
+	public Rigidbody2D rb;
+
 	// Use this for initialization
 	void Start () {
-	
+		rb = GetComponent<Rigidbody2D>();
 	}
 	
 	// Update is called once per frame
@@ -27,6 +31,7 @@ public class NarwhalMovement : MonoBehaviour {
 
 		if (Input.GetButton(dash)) {
 			Debug.Log ("Dash" + dash);
+			rb.AddForce (transform.right * thrust);
 		}
 
 		if (Input.GetButton(spout)) {
