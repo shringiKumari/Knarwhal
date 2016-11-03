@@ -27,6 +27,7 @@ public class NarwhalMovement : MonoBehaviour {
 			//transform.position += new Vector3(Mathf.Cos(angle), Mathf.Sin(angle),0) * Time.fixedDeltaTime * translationSpeed;
 			//Debug.Log ("cos"+Mathf.Cos(angle));
 			//Debug.Log ("sin"+Mathf.Sin(angle));
+			Debug.Log(move);
 		}
 
 		if (Input.GetButton(dash)) {
