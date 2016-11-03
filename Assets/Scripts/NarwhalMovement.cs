@@ -22,7 +22,7 @@ public class NarwhalMovement : MonoBehaviour {
 
 			Vector3 ReferenceVector = Quaternion.Euler(0, 0, hornAngle) * transform.right;
 			transform.position += ReferenceVector * Time.fixedDeltaTime * translationSpeed;
-			Debug.Log(move);
+			//Debug.Log(move);
 		}
 
 		if (Input.GetButton(dash)) {
