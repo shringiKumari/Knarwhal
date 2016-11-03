@@ -165,7 +165,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4000013892223062, guid: 5ea7cda290f5840ff8ad120a99992d65, type: 2}
       propertyPath: m_RootOrder
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1000012527992210, guid: 5ea7cda290f5840ff8ad120a99992d65, type: 2}
       propertyPath: m_Name
@@ -206,7 +206,7 @@ Prefab:
     - target: {fileID: 114000012591789598, guid: 5ea7cda290f5840ff8ad120a99992d65,
         type: 2}
       propertyPath: move
-      value: A_W
+      value: A
       objectReference: {fileID: 0}
     - target: {fileID: 114000012591789598, guid: 5ea7cda290f5840ff8ad120a99992d65,
         type: 2}
@@ -424,7 +424,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4000013892223062, guid: 5ea7cda290f5840ff8ad120a99992d65, type: 2}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 212000012332809382, guid: 5ea7cda290f5840ff8ad120a99992d65,
         type: 2}
@@ -592,7 +592,7 @@ GameObject:
   m_PrefabInternal: {fileID: 0}
   serializedVersion: 4
   m_Component:
-  - 224: {fileID: 1540787781}
+  - 4: {fileID: 1540787781}
   - 20: {fileID: 1540787780}
   - 92: {fileID: 1540787779}
   - 124: {fileID: 1540787778}
@@ -660,8 +660,8 @@ Camera:
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
   m_StereoMirrorMode: 0
---- !u!224 &1540787781
-RectTransform:
+--- !u!4 &1540787781
+Transform:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
@@ -672,12 +672,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_RootOrder: 0
 --- !u!114 &1540787782
 MonoBehaviour:
   m_ObjectHideFlags: 0
