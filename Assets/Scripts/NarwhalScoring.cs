@@ -3,26 +3,36 @@ using System.Collections;
 
 public class NarwhalScoring : MonoBehaviour {
 
+	private int AndyScore;
+	private int ThringiScore;
+	private bool ScoreReady = true;
+
 	// Use this for initialization
 	void Start () {
-	
 	}
 
-	void OnTriggerEnter2D(Collider2D other) {
+	IEnumerator OnTriggerEnter2D(Collider2D bodyhit) {
 
-		if (other.tag == "AndyBody") {
-			Debug.Log ("Point for Thringi");
+		if (bodyhit.tag == "AndyBody") {
+			if (ScoreReady == true) {
+				ThringiScore += 1;
+				ScoreReady = false;
+				Debug.Log (ThringiScore);
+			}
 		}
 
-		if (other.tag == "ThringiBody") {
-			Debug.Log ("Point for Andy");
+		if (bodyhit.tag == "ThringiBody") {
+			if (ScoreReady == true) {
+				AndyScore += 1;
+				ScoreReady = false;
+				Debug.Log (AndyScore);
+			}
 		}
-
-		Debug.Log ("no points :<");
+		yield return new WaitForSecondsRealtime (3);
+		ScoreReady = true;
 	}
 	
 	// Update is called once per frame
 	void Update () {
-	
 	}
 }
