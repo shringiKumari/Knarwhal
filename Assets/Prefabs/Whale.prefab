@@ -141,9 +141,9 @@ Rigidbody2D:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000014088132396}
   m_UseAutoMass: 0
-  m_Mass: 0.0001
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
+  m_Mass: 0.01
+  m_LinearDrag: 20
+  m_AngularDrag: 20
   m_GravityScale: 0
   m_IsKinematic: 0
   m_Interpolate: 0
@@ -279,8 +279,9 @@ MonoBehaviour:
   rotate: LeftJoystickX
   dash: X
   spout: RB
-  hornAngle: 45
-  thrust: 0
+  hornAngle: 0
+  thrust: 1.5
+  movementThrust: 0
   rb: {fileID: 0}
 --- !u!212 &212000010718576180
 SpriteRenderer:

@@ -8,9 +8,14 @@ public class NarwhalMovement : MonoBehaviour {
 	public string rotate;
 	public string dash;
 	public string spout;
+
 	public float hornAngle;
 	public float thrust;
 	public float movementThrust;
+
+	private float dashCoolDownTimer = 5;
+	private float startTimer = 5;
+
 	private float botLimit, topLimit, leftLimit, rightLimit;
 
 	public Rigidbody2D rb;
@@ -30,7 +35,7 @@ public class NarwhalMovement : MonoBehaviour {
 	
 	// Update is called once per frame
 	void FixedUpdate () {
-		transform.Rotate (Vector3.forward * Input.GetAxis(rotate) * rotationSpeed);
+		
 
 		Vector3 pos = transform.position;
 		if (pos.x < botLimit)
@@ -44,20 +49,30 @@ public class NarwhalMovement : MonoBehaviour {
 
 		transform.position = pos;
 
+		//Knarwhal rotation using the joystick input.
+		transform.Rotate (Vector3.forward * Input.GetAxis(rotate) * rotationSpeed);
+
+		//Knarwhal move on pressing controller button.
 		if (Input.GetButton(move)) {
 
 			Vector3 ReferenceVector = Quaternion.Euler(0, 0, hornAngle) * transform.right;
-			//transform.position += ReferenceVector * Time.fixedDeltaTime * translationSpeed;
-			rb.AddForce(ReferenceVector * movementThrust);
+			transform.position += ReferenceVector * Time.fixedDeltaTime * translationSpeed;
+			//rb.AddForce(ReferenceVector * movementThrust);
 			//Debug.Log(move);
 
 		}
 
-		if (Input.GetButton(dash)) {
+		//Knarwhal dash on pressing controller button.
+		if (Input.GetButtonDown(dash)) {
 			Debug.Log ("Dash" + dash);
-			Vector3 ReferenceVector = Quaternion.Euler(0, 0, hornAngle) * transform.right;
-			rb.AddForce(ReferenceVector * thrust, ForceMode2D.Impulse);
+			if (startTimer >= dashCoolDownTimer) {
+				Vector3 ReferenceVector = Quaternion.Euler (0, 0, hornAngle) * transform.right;
+				rb.AddForce (ReferenceVector * thrust, ForceMode2D.Impulse);
+				startTimer = 0;
+			}
 		}
+		startTimer += Time.fixedDeltaTime;
+		Debug.Log (gameObject.name + " startTimer" + startTimer);
 
 		if (Input.GetButton(spout)) {
 			Debug.Log ("Spout" + spout);
