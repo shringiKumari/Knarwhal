@@ -1,9 +1,10 @@
 ﻿using UnityEngine;
+using UnityEngine.Events;
 using System.Collections;
 
 public class NarwhalMovement : MonoBehaviour {
-	public float rotationSpeed = 10;
-	public float translationSpeed = 10;
+	public float rotationSpeed = 10.0f;
+	public float translationSpeed = 10.0f;
 	public string move;
 	public string rotate;
 	public string dash;
@@ -13,12 +14,13 @@ public class NarwhalMovement : MonoBehaviour {
 	public float thrust;
 	public float movementThrust;
 
-	private float dashCoolDownTimer = 5;
-	private float startTimer = 5;
+	private float dashCoolDownTimer = 5.0f;
+	private float startTimer = 5.0f;
 
 	private float botLimit, topLimit, leftLimit, rightLimit;
 
 	public Rigidbody2D rb;
+	public DashStartedEvent dashStarted = new DashStartedEvent(); 
 
 	// Use this for initialization
 	void Start () {
@@ -68,11 +70,14 @@ public class NarwhalMovement : MonoBehaviour {
 			if (startTimer >= dashCoolDownTimer) {
 				Vector3 ReferenceVector = Quaternion.Euler (0, 0, hornAngle) * transform.right;
 				rb.AddForce (ReferenceVector * thrust, ForceMode2D.Impulse);
+				if (dashStarted != null) {
+					dashStarted.Invoke (dashCoolDownTimer);
+				}
 				startTimer = 0;
 			}
 		}
 		startTimer += Time.fixedDeltaTime;
-		Debug.Log (gameObject.name + " startTimer" + startTimer);
+		//Debug.Log (gameObject.name + " startTimer" + startTimer);
 
 		if (Input.GetButton(spout)) {
 			Debug.Log ("Spout" + spout);
