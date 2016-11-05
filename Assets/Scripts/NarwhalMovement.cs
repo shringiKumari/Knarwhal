@@ -11,17 +11,38 @@ public class NarwhalMovement : MonoBehaviour {
 	public float hornAngle;
 	public float thrust;
 	public float movementThrust;
+	private float botLimit, topLimit, leftLimit, rightLimit;
 
 	public Rigidbody2D rb;
 
 	// Use this for initialization
 	void Start () {
 		rb = GetComponent<Rigidbody2D>();
+		float camDistance = Vector3.Distance(transform.position, Camera.main.transform.position);
+		Vector2 bottomCorner = Camera.main.ViewportToWorldPoint(new Vector3(0,0, camDistance));
+		Vector2 topCorner = Camera.main.ViewportToWorldPoint(new Vector3(1,1, camDistance));
+
+		botLimit = bottomCorner.x;
+		topLimit = topCorner.x;
+		leftLimit = bottomCorner.y;
+		rightLimit = topCorner.y;
 	}
 	
 	// Update is called once per frame
 	void FixedUpdate () {
 		transform.Rotate (Vector3.forward * Input.GetAxis(rotate) * rotationSpeed);
+
+		Vector3 pos = transform.position;
+		if (pos.x < botLimit)
+			pos.x = botLimit;
+		if (pos.x > topLimit)
+			pos.x = topLimit;
+		if (pos.y < leftLimit)
+			pos.y = leftLimit;
+		if (pos.y > rightLimit)
+			pos.y = rightLimit;
+
+		transform.position = pos;
 
 		if (Input.GetButton(move)) {
 
@@ -29,6 +50,7 @@ public class NarwhalMovement : MonoBehaviour {
 			//transform.position += ReferenceVector * Time.fixedDeltaTime * translationSpeed;
 			rb.AddForce(ReferenceVector * movementThrust);
 			//Debug.Log(move);
+
 		}
 
 		if (Input.GetButton(dash)) {
