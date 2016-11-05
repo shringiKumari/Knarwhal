@@ -71,6 +71,7 @@ GameObject:
   - 114: {fileID: 114000013492093692}
   - 50: {fileID: 50000012511789236}
   - 114: {fileID: 114000010551003026}
+  - 114: {fileID: 114000010363717676}
   m_Layer: 0
   m_Name: Whale
   m_TagString: Untagged
@@ -251,6 +252,21 @@ PolygonCollider2D:
       - {x: 0.044999998, y: -1.18}
       - {x: 0.16499999, y: -1.15}
       - {x: 0.275, y: -1.11}
+--- !u!114 &114000010363717676
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000014088132396}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 71904b60e466b4a7bb1dddca30190a29, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  coolDownCircle: {fileID: 0}
+  narwhalMovement: {fileID: 0}
+  narwhalScoring: {fileID: 114000010551003026}
+  scoreText: {fileID: 0}
 --- !u!114 &114000010551003026
 MonoBehaviour:
   m_ObjectHideFlags: 1
