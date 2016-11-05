@@ -2,15 +2,17 @@
 using System.Collections;
 
 public class NarwhalMovement : MonoBehaviour {
-	public float rotationSpeed = 10;
-	public float translationSpeed = 10;
 	public string move;
 	public string rotate;
 	public string dash;
 	public string spout;
 	public float hornAngle;
 	public float thrust;
-	private float botLimit, topLimit, leftLimit, rightLimit;
+
+	private float rotationSpeed = 500;
+	private float translationSpeed = 500;
+
+  private float botLimit, topLimit, leftLimit, rightLimit;
 	public Rigidbody2D rb;
 
   private int playerID;
@@ -21,7 +23,10 @@ public class NarwhalMovement : MonoBehaviour {
     playerID = name == "Andy" ? 0 : 1;
 
     rb = GetComponent<Rigidbody2D>();
-		float camDistance = Vector3.Distance(transform.position, Camera.main.transform.position);
+    rb.angularDrag = 10f;
+    rb.drag = 10f;
+
+    float camDistance = Vector3.Distance(transform.position, Camera.main.transform.position);
 		Vector2 bottomCorner = Camera.main.ViewportToWorldPoint(new Vector3(0,0, camDistance));
 		Vector2 topCorner = Camera.main.ViewportToWorldPoint(new Vector3(1,1, camDistance));
 
@@ -29,14 +34,30 @@ public class NarwhalMovement : MonoBehaviour {
 		topLimit = topCorner.x;
 		leftLimit = bottomCorner.y;
 		rightLimit = topCorner.y;
-	}
+
+    float h = 2f * Camera.main.orthographicSize;
+    float w = h * Camera.main.aspect;
+
+    AddWall(-w / 2 - 0.5f, 0, 1, h);
+    AddWall(w / 2 + 0.5f, 0, 1, h);
+    AddWall(0, -h / 2 - 0.5f, w, 1);
+    AddWall(0, h / 2 + 0.5f, w, 1);
+
+  }
 
   private float RotateInput() {
-    var r = Input.GetAxis(rotate);
-    if (r == 0f) {
-      r = keyboard.Rotate(playerID);
-    }
-    return r;
+    return Input.GetAxis(rotate) + keyboard.Rotate(playerID);
+  }
+
+
+  void AddWall(float x, float y, float w, float h) {
+    var o = new GameObject();
+    var bc = o.AddComponent<BoxCollider2D>();
+    var sr = o.AddComponent<SpriteRenderer>();
+    sr.sprite = Resources.Load<Sprite>("white");
+    var t = o.transform;
+    t.localScale = new Vector3(w, h, 1);
+    t.position = new Vector3(x, y);
   }
 
   private bool MoveInput() {
@@ -53,27 +74,15 @@ public class NarwhalMovement : MonoBehaviour {
 
   // Update is called once per frame
   void FixedUpdate () {
-		transform.Rotate (Vector3.forward * RotateInput() * rotationSpeed);
-
-		Vector3 pos = transform.position;
-		if (pos.x < botLimit)
-			pos.x = botLimit;
-		if (pos.x > topLimit)
-			pos.x = topLimit;
-		if (pos.y < leftLimit)
-			pos.y = leftLimit;
-		if (pos.y > rightLimit)
-			pos.y = rightLimit;
-
-		transform.position = pos;
-
+    var rotate = RotateInput();
+    if(rotate != 0f) rb.angularVelocity = rotate * rotationSpeed;
+    
     if (MoveInput()) {
-
 			Vector3 ReferenceVector = Quaternion.Euler(0, 0, hornAngle) * transform.right;
-			transform.position += ReferenceVector * Time.fixedDeltaTime * translationSpeed;
-			//Debug.Log(move);
+      rb.velocity = ReferenceVector * Time.fixedDeltaTime * translationSpeed;
 
-		}
+      //Debug.Log(move);
+    }
 
 		if (DashInput()) {
 			Debug.Log ("Dash" + dash);
