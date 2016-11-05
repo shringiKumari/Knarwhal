@@ -11,8 +11,7 @@ public class NarwhalMovement : MonoBehaviour {
 
 	private float rotationSpeed = 500;
 	private float translationSpeed = 500;
-
-  private float botLimit, topLimit, leftLimit, rightLimit;
+  
 	public Rigidbody2D rb;
 
   private int playerID;
@@ -25,15 +24,6 @@ public class NarwhalMovement : MonoBehaviour {
     rb = GetComponent<Rigidbody2D>();
     rb.angularDrag = 10f;
     rb.drag = 10f;
-
-    float camDistance = Vector3.Distance(transform.position, Camera.main.transform.position);
-		Vector2 bottomCorner = Camera.main.ViewportToWorldPoint(new Vector3(0,0, camDistance));
-		Vector2 topCorner = Camera.main.ViewportToWorldPoint(new Vector3(1,1, camDistance));
-
-		botLimit = bottomCorner.x;
-		topLimit = topCorner.x;
-		leftLimit = bottomCorner.y;
-		rightLimit = topCorner.y;
 
     float h = 2f * Camera.main.orthographicSize;
     float w = h * Camera.main.aspect;
