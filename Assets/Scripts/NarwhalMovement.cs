@@ -42,7 +42,7 @@ public class NarwhalMovement : MonoBehaviour {
 
   void AddWall(float x, float y, float w, float h) {
     var o = new GameObject();
-    var bc = o.AddComponent<BoxCollider2D>();
+    o.AddComponent<BoxCollider2D>();
     var sr = o.AddComponent<SpriteRenderer>();
     sr.sprite = Resources.Load<Sprite>("white");
     var t = o.transform;

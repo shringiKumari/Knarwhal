@@ -20,7 +20,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 4000010087456718}
   - 60: {fileID: 60000011782317316}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: HornCollision
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -36,7 +36,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 4000010929149916}
   - 60: {fileID: 60000014022376730}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: BodyCollision
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -52,7 +52,8 @@ GameObject:
   m_Component:
   - 4: {fileID: 4000010860789642}
   - 60: {fileID: 60000013578470656}
-  m_Layer: 0
+  - 114: {fileID: 114000010017445342}
+  m_Layer: 10
   m_Name: Scoring
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -73,6 +74,22 @@ GameObject:
   - 114: {fileID: 114000010551003026}
   m_Layer: 0
   m_Name: Whale2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &1000014268475754
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 4000011848086602}
+  - 60: {fileID: 60000013537606396}
+  m_Layer: 11
+  m_Name: VitalCollision
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -131,8 +148,22 @@ Transform:
   - {fileID: 4000010929149916}
   - {fileID: 4000010860789642}
   - {fileID: 4000010087456718}
+  - {fileID: 4000011848086602}
   m_Father: {fileID: 0}
   m_RootOrder: 0
+--- !u!4 &4000011848086602
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000014268475754}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_Children: []
+  m_Father: {fileID: 4000011421318084}
+  m_RootOrder: 3
 --- !u!50 &50000012511789236
 Rigidbody2D:
   serializedVersion: 2
@@ -141,7 +172,7 @@ Rigidbody2D:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000014088132396}
   m_UseAutoMass: 0
-  m_Mass: 0.0001
+  m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 0
@@ -170,6 +201,33 @@ PolygonCollider2D:
       - {x: 2.075, y: -0.35291672}
       - {x: 1.015, y: -0.24}
       - {x: 0.905, y: -0.22}
+--- !u!60 &60000013537606396
+PolygonCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000014268475754}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_Offset: {x: 0, y: 0}
+  m_Points:
+    m_Paths:
+    - - {x: -1.7150528, y: 0.61140615}
+      - {x: -1.2729762, y: 0.4109903}
+      - {x: -0.9931977, y: 0.34246278}
+      - {x: -0.603956, y: 0.44087785}
+      - {x: -0.058356524, y: 0.45657533}
+      - {x: 0.4127853, y: 0.28689057}
+      - {x: 0.65545297, y: -0.029313236}
+      - {x: 0.70108724, y: -0.41911888}
+      - {x: 0.49655128, y: -0.8173139}
+      - {x: -0.08813357, y: -1.0913687}
+      - {x: -0.58175635, y: -0.9886876}
+      - {x: -1.2006676, y: -0.5339162}
+      - {x: -1.6113312, y: 0.16136485}
 --- !u!60 &60000013578470656
 PolygonCollider2D:
   m_ObjectHideFlags: 1
@@ -251,6 +309,17 @@ PolygonCollider2D:
       - {x: 0.044999998, y: -1.18}
       - {x: 0.16499999, y: -1.15}
       - {x: 0.275, y: -1.11}
+--- !u!114 &114000010017445342
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000013969311338}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f361f20aec456534e8e701221f8cc4a7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114000010551003026
 MonoBehaviour:
   m_ObjectHideFlags: 1
