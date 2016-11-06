@@ -35,7 +35,7 @@ public class SceneUIManager : MonoBehaviour {
 	}
 
 	void ScoreUpdate (int score) {
-		//this.score = score;	
+		//this.score = score
 		scoreText.text = score.ToString();
 	}
 
