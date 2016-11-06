@@ -16,11 +16,6 @@ public class GameEntryScreen : MonoBehaviour {
 
 	}
 
-	// Update is called once per frame
-	void Update () {
-	
-	}
-
 	public void OnClick (){
 		button.gameObject.SetActive(false);
 		readySetJoust.gameObject.SetActive (true);

@@ -19,7 +19,7 @@ public class NarwhalScoring : MonoBehaviour {
 			if (ScoreReady == true) {
 				ThringiScore += 1;
 				ScoreReady = false;
-				updateScore.Invoke (ThringiScore); //For UI
+				updateScore.Invoke (ThringiScore); //Trigger for UI
 				Debug.Log (ThringiScore);
 			}
 		}
@@ -28,7 +28,7 @@ public class NarwhalScoring : MonoBehaviour {
 			if (ScoreReady == true) {
 				AndyScore += 1;
 				ScoreReady = false;
-				updateScore.Invoke (AndyScore); //For UI
+				updateScore.Invoke (AndyScore); //Trigger for UI
 				Debug.Log (AndyScore);
 			}
 		}

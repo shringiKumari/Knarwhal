@@ -368,14 +368,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.8014706, g: 0.8014706, b: 0.8014706, a: 0.991}
+  m_Color: {r: 0.9558824, g: 0.9872211, b: 1, a: 0.991}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 47700b440fcbf415fba08dabacdd92af, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 43b17e868d6f9405fba3dce47641c4cc, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -616,6 +616,7 @@ GameObject:
   - 222: {fileID: 877319647}
   - 114: {fileID: 877319646}
   - 114: {fileID: 877319645}
+  - 114: {fileID: 877319648}
   m_Layer: 5
   m_Name: Button
   m_TagString: Untagged
@@ -691,7 +692,7 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
-        m_CallState: 2
+        m_CallState: 0
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &877319646
@@ -727,6 +728,17 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 877319643}
+--- !u!114 &877319648
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 877319643}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b310dbb7e4acc4b07b5e6a1730e66d0a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1052857529
 GameObject:
   m_ObjectHideFlags: 0
@@ -745,7 +757,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1052857530
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -846,7 +858,7 @@ GameObject:
   - 114: {fileID: 1086138915}
   m_Layer: 5
   m_Name: GameEntryScreen
-  m_TagString: Untagged
+  m_TagString: GameEntryScreen
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1012,7 +1024,7 @@ GameObject:
   - 212: {fileID: 1198110918}
   - 114: {fileID: 1198110920}
   m_Layer: 0
-  m_Name: BG
+  m_Name: SceneBG
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1047,8 +1059,8 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: -5
-  m_Sprite: {fileID: 21300000, guid: 75700b90d49414f4db374d10af83a258, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Sprite: {fileID: 21300000, guid: fee3d4072c4944416a557f765aee5f46, type: 3}
+  m_Color: {r: 0.78341264, g: 0.92856914, b: 1, a: 0.622}
   m_FlipX: 0
   m_FlipY: 0
 --- !u!4 &1198110919
@@ -1456,7 +1468,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_BackGroundColor: {r: 1, g: 1, b: 1, a: 0}
   m_NormalizedViewPortRect:
     serializedVersion: 2
     x: 0
@@ -1704,7 +1716,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.7647059, g: 0, b: 0.74361074, a: 1}
+  m_Color: {r: 0.966, g: 0.43137258, b: 0.4431373, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
