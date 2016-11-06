@@ -39,7 +39,6 @@ public class SceneUIManager : MonoBehaviour {
 		scoreText.text = score.ToString();
 	}
 
-
 	void Update () {
 
 		if (dashHasStarted) {
