@@ -922,6 +922,11 @@ Prefab:
       propertyPath: m_Name
       value: PlayerAndy
       objectReference: {fileID: 0}
+    - target: {fileID: 224000014291642382, guid: 481c582da35c44ad69c2279a8d237681,
+        type: 2}
+      propertyPath: m_AnchoredPosition.x
+      value: 20
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 481c582da35c44ad69c2279a8d237681, type: 2}
   m_IsPrefabParent: 0
@@ -971,7 +976,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: -5
-  m_Sprite: {fileID: 21300000, guid: fee3d4072c4944416a557f765aee5f46, type: 3}
+  m_Sprite: {fileID: 21300000, guid: ab08b1a962f1a48a08c172ac30b4aa66, type: 3}
   m_Color: {r: 0.78341264, g: 0.92856914, b: 1, a: 0.622}
   m_FlipX: 0
   m_FlipY: 0
@@ -1380,7 +1385,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 1
-  m_BackGroundColor: {r: 1, g: 1, b: 1, a: 0}
+  m_BackGroundColor: {r: 0.43020114, g: 0.4529837, b: 0.53676474, a: 0}
   m_NormalizedViewPortRect:
     serializedVersion: 2
     x: 0
