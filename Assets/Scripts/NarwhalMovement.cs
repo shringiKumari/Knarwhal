@@ -20,10 +20,18 @@ public class NarwhalMovement : MonoBehaviour {
 	private float botLimit, topLimit, leftLimit, rightLimit;
 
 	public Rigidbody2D rb;
+
+	private int playerID;
+	private KeyboardInput keyboard = new KeyboardInput();
+
+
 	public DashStartedEvent dashStarted = new DashStartedEvent(); 
 
 	// Use this for initialization
 	void Start () {
+
+		playerID = name == "Andy" ? 0 : 1;
+
 		rb = GetComponent<Rigidbody2D>();
 		float camDistance = Vector3.Distance(transform.position, Camera.main.transform.position);
 		Vector2 bottomCorner = Camera.main.ViewportToWorldPoint(new Vector3(0,0, camDistance));
@@ -36,8 +44,29 @@ public class NarwhalMovement : MonoBehaviour {
 	}
 	
 	// Update is called once per frame
+	private float RotateInput() {
+		var r = Input.GetAxis(rotate);
+		if (r == 0f) {
+		r = keyboard.Rotate(playerID);
+		}
+	return r;
+	}
+
+	private bool MoveInput() {
+		return Input.GetButton(move) || keyboard.Move(playerID);
+	}
+
+	private bool DashInput() {
+		return Input.GetButton(dash) || keyboard.Dash(playerID);
+	}
+
+	private bool SpoutInput() {
+		return Input.GetButton(dash) || keyboard.Spout(playerID);
+	}
+
+	 // Update is called once per frame
 	void FixedUpdate () {
-		
+		transform.Rotate (Vector3.forward * RotateInput() * rotationSpeed);
 
 		Vector3 pos = transform.position;
 		if (pos.x < botLimit)
@@ -55,31 +84,30 @@ public class NarwhalMovement : MonoBehaviour {
 		transform.Rotate (Vector3.forward * Input.GetAxis(rotate) * rotationSpeed);
 
 		//Knarwhal move on pressing controller button.
-		if (Input.GetButton(move)) {
+		if (MoveInput()) {
 
 			Vector3 ReferenceVector = Quaternion.Euler(0, 0, hornAngle) * transform.right;
 			transform.position += ReferenceVector * Time.fixedDeltaTime * translationSpeed;
-			//rb.AddForce(ReferenceVector * movementThrust);
-			//Debug.Log(move);
 
 		}
 
 		//Knarwhal dash on pressing controller button.
-		if (Input.GetButtonDown(dash)) {
-			Debug.Log ("Dash" + dash);
+		if (DashInput()) {
+			
 			if (startTimer >= dashCoolDownTimer) {
+				
 				Vector3 ReferenceVector = Quaternion.Euler (0, 0, hornAngle) * transform.right;
 				rb.AddForce (ReferenceVector * thrust, ForceMode2D.Impulse);
 				if (dashStarted != null) {
 					dashStarted.Invoke (dashCoolDownTimer);
 				}
 				startTimer = 0;
+
 			}
 		}
 		startTimer += Time.fixedDeltaTime;
-		//Debug.Log (gameObject.name + " startTimer" + startTimer);
 
-		if (Input.GetButton(spout)) {
+		if (SpoutInput()) {
 			Debug.Log ("Spout" + spout);
 		}
 	}
