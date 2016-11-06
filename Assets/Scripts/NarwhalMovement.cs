@@ -81,13 +81,15 @@ public class NarwhalMovement : MonoBehaviour {
 		transform.position = pos;
 
 		//Knarwhal rotation using the joystick input.
-		transform.Rotate (Vector3.forward * Input.GetAxis(rotate) * rotationSpeed);
+		//transform.Rotate (Vector3.forward * Input.GetAxis(rotate) * rotationSpeed);
+		rb.angularVelocity = Input.GetAxis(rotate) * rotationSpeed;
 
 		//Knarwhal move on pressing controller button.
 		if (MoveInput()) {
 
 			Vector3 ReferenceVector = Quaternion.Euler(0, 0, hornAngle) * transform.right;
-			transform.position += ReferenceVector * Time.fixedDeltaTime * translationSpeed;
+			//transform.position += ReferenceVector * Time.fixedDeltaTime * translationSpeed;
+			rb.velocity = ReferenceVector * Time.fixedDeltaTime * translationSpeed;
 
 		}
 
