@@ -3,61 +3,69 @@ using System.Collections;
 
 public class Skewer : MonoBehaviour {
 
-  private float skewered = float.MinValue;
+  private float lastChangeTime = float.MinValue;
 
-  private Vector3 collisionPointFar = new Vector3(2f, -0.4f);
-  private Vector3 collisionPointNear = new Vector3(1.5f, -0.4f);
+  private State state = State.hunting;
 
+  private GameObject enemyParent;
 
-  GameObject SpawnWoundBlock(GameObject enemyParent, string name) {
-    // Clear existing object
-    var oldTransform = enemyParent.transform.Find(name);
-    if (oldTransform != null) {
-      Destroy(oldTransform.gameObject);
-    }
-    // Create block
-    var o = new GameObject();
-    o.layer = LayerMask.NameToLayer("wound");
-    o.AddComponent<CircleCollider2D>();
-    var rb = o.AddComponent<Rigidbody2D>();
-    var sr = o.AddComponent<SpriteRenderer>();
-    var joint = o.AddComponent<FixedJoint2D>();
-    joint.connectedBody = enemyParent.GetComponent<Rigidbody2D>();
-    sr.sprite = Resources.Load<Sprite>("white");
-    var t = o.transform;
-    t.parent = enemyParent.transform;
-    t.localScale = new Vector3(0.2f, 0.2f, 1);
-    o.name = name;
-    return o;
+  private enum State {
+    hunting, pricked, skewered, cooldown
+  }
+
+  void SetState(State s){
+    state = s;
+    lastChangeTime = Time.time;
   }
 
   void OnTriggerEnter2D(Collider2D enemy) {
-    if (Time.time > skewered + 3) {
-      Debug.Log("Collision with " + enemy.name);
+    
+    if (state == State.pricked && enemy.name == "VitalConfirm") {
+      Debug.Log ("Collision with " + enemy.name);
       var parent = transform.parent.gameObject;
-      var enemyParent = enemy.gameObject.transform.parent.gameObject;
-      if (enemy.name == "VitalCollision" && parent != enemyParent) {
-        //var rb = parent.GetComponent<Rigidbody2D>();
-        //var v = rb.velocity;
-        // if the collision is in the right direction and with enough force
-        var w1 = SpawnWoundBlock(enemyParent, "w1");
-        var w2 = SpawnWoundBlock(enemyParent, "w2");
-        //w1.transform.position = parent.transform.localToWorldMatrix * new Vector3(2, 0, 0);
-        var hornVec = new Vector3(1.6f, -0.4f);
-        var perp = new Vector3(-hornVec.y, hornVec.x).normalized;
-        w1.transform.position = parent.transform.TransformPoint(hornVec + perp * 0.25f);
-        w2.transform.position = parent.transform.TransformPoint(hornVec + perp * -0.25f);
+      var newEnemyParent = enemy.gameObject.transform.parent.parent.gameObject;
+      if (newEnemyParent == enemyParent) {
 
-        // spawn blocks by the horn tip
-        // add a spring joint connecting the horn to the body of the enemy
-        skewered = Time.time;
+      }
+    }
+
+    if (state == State.hunting && enemy.name == "VitalCollision") {
+      Debug.Log ("Collision with " + enemy.name);
+      var parent = transform.parent.gameObject;
+      enemyParent = enemy.gameObject.transform.parent.gameObject;
+      if (parent != enemyParent) {
+        var wound = enemyParent.transform.Find ("wound");
+        wound.gameObject.SetActive (true);
+        Destroy (wound.gameObject.GetComponent<FixedJoint2D> ());
+        wound.position = parent.transform.TransformPoint (new Vector3 (1.6f, -0.4f));
+        wound.rotation = parent.transform.rotation;
+        var j = wound.gameObject.AddComponent<FixedJoint2D> ();
+        j.connectedBody = enemyParent.GetComponent<Rigidbody2D> ();
+        SetState (State.pricked);
       }
     }
   }
 
   // Update is called once per frame
   void Update () {
-	  
+    if (state == State.hunting) {
+      // Stay in this state indefinitely
+    }
+    else if (state == State.pricked) {
+      if (lastChangeTime + 1 < Time.time) {
+        SetState (State.hunting);
+      }
+    }
+    else if (state == State.skewered) {
+      if (lastChangeTime + 3 < Time.time) {
+        SetState (State.cooldown);
+      }
+    }
+    else if (state == State.cooldown) {
+      if (lastChangeTime + 1 < Time.time) {
+        SetState (State.hunting);
+      }
+    }
 	}
 
 	// Use this for initialization
