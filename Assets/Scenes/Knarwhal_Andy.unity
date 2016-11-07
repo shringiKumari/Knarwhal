@@ -201,10 +201,14 @@ Prefab:
       propertyPath: m_ConnectedAnchor.x
       value: -0
       objectReference: {fileID: 0}
-    - target: {fileID: 255000012511437994, guid: 0615bd46a56d3e74facee17136820499,
-        type: 2}
+    - target: {fileID: 0}
       propertyPath: m_ConnectedAnchor.x
       value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000013492093692, guid: 0615bd46a56d3e74facee17136820499,
+        type: 2}
+      propertyPath: hornAngle
+      value: 180
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 0615bd46a56d3e74facee17136820499, type: 2}
