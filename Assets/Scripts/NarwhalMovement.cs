@@ -1,29 +1,37 @@
 ﻿using UnityEngine;
+using UnityEngine.Events;
 using System.Collections;
 
 public class NarwhalMovement : MonoBehaviour {
+	public float rotationSpeed = 10.0f;
+	public float translationSpeed = 10.0f;
 	public string move;
 	public string rotate;
 	public string dash;
 	public string spout;
+
 	public float hornAngle;
 	public float thrust;
 
-	private float rotationSpeed = 500;
-	private float translationSpeed = 500;
-  
+	public float movementThrust;
+
+	private float dashCoolDownTimer = 5.0f;
+	private float startTimer = 5.0f;
+
+
 	public Rigidbody2D rb;
 
-  private int playerID;
-  private KeyboardInput keyboard = new KeyboardInput();
+	private int playerID;
+	private KeyboardInput keyboard = new KeyboardInput();
+
+
+	public DashStartedEvent dashStarted = new DashStartedEvent(); 
 
 	// Use this for initialization
 	void Start () {
     playerID = name == "Andy" ? 0 : 1;
 
     rb = GetComponent<Rigidbody2D>();
-    rb.angularDrag = 10f;
-    rb.drag = 10f;
 
     float h = 2f * Camera.main.orthographicSize;
     float w = h * Camera.main.aspect;
@@ -35,11 +43,6 @@ public class NarwhalMovement : MonoBehaviour {
 
   }
 
-  private float RotateInput() {
-    return Input.GetAxis(rotate) + keyboard.Rotate(playerID);
-  }
-
-
   void AddWall(float x, float y, float w, float h) {
     var o = new GameObject();
     o.AddComponent<BoxCollider2D>();
@@ -48,6 +51,10 @@ public class NarwhalMovement : MonoBehaviour {
     var t = o.transform;
     t.localScale = new Vector3(w, h, 1);
     t.position = new Vector3(x, y);
+  }
+
+  private float RotateInput() {
+    return Input.GetAxis(rotate) + keyboard.Rotate(playerID);
   }
 
   private bool MoveInput() {
@@ -62,22 +69,37 @@ public class NarwhalMovement : MonoBehaviour {
     return Input.GetButton(dash) || keyboard.Spout(playerID);
   }
 
-  // Update is called once per frame
-  void FixedUpdate () {
-    var rotate = RotateInput();
-    if(rotate != 0f) rb.angularVelocity = rotate * rotationSpeed;
-    
-    if (MoveInput()) {
+	 // Update is called once per frame
+	void FixedUpdate () {
+		
+
+
+		//Knarwhal rotation using the joystick input.
+    rb.angularVelocity = RotateInput() * rotationSpeed;
+
+		//Knarwhal move on pressing controller button.
+		if (MoveInput()) {
+
 			Vector3 ReferenceVector = Quaternion.Euler(0, 0, hornAngle) * transform.right;
-      rb.velocity = ReferenceVector * Time.fixedDeltaTime * translationSpeed;
+			rb.velocity = ReferenceVector * Time.fixedDeltaTime * translationSpeed;
 
-      //Debug.Log(move);
-    }
-
-		if (DashInput()) {
-			Debug.Log ("Dash" + dash);
-			rb.AddForce (transform.right * thrust);
 		}
+
+		//Knarwhal dash on pressing controller button.
+		if (DashInput()) {
+			
+			if (startTimer >= dashCoolDownTimer) {
+				
+				Vector3 ReferenceVector = Quaternion.Euler (0, 0, hornAngle) * transform.right;
+				rb.AddForce (ReferenceVector * thrust, ForceMode2D.Impulse);
+				if (dashStarted != null) {
+					dashStarted.Invoke (dashCoolDownTimer);
+				}
+				startTimer = 0;
+
+			}
+		}
+		startTimer += Time.fixedDeltaTime;
 
 		if (SpoutInput()) {
 			Debug.Log ("Spout" + spout);

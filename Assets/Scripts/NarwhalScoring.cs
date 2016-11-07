@@ -7,6 +7,8 @@ public class NarwhalScoring : MonoBehaviour {
 	private int ThringiScore;
 	private bool ScoreReady = true;
 
+	public ScoreUpdateEvent updateScore = new ScoreUpdateEvent(); 
+
 	// Use this for initialization
 	void Start () {
 	}
@@ -17,6 +19,7 @@ public class NarwhalScoring : MonoBehaviour {
 			if (ScoreReady == true) {
 				ThringiScore += 1;
 				ScoreReady = false;
+				updateScore.Invoke (ThringiScore); //Trigger for UI
 				Debug.Log (ThringiScore);
 			}
 		}
@@ -25,6 +28,7 @@ public class NarwhalScoring : MonoBehaviour {
 			if (ScoreReady == true) {
 				AndyScore += 1;
 				ScoreReady = false;
+				updateScore.Invoke (AndyScore); //Trigger for UI
 				Debug.Log (AndyScore);
 			}
 		}
