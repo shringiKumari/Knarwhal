@@ -135,112 +135,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 1000014088132396, guid: 7f6e781fc7ec95a4aac2ca22dcf739ac, type: 2}
-      propertyPath: m_Name
-      value: Andy
-      objectReference: {fileID: 0}
-    - target: {fileID: 212000010718576180, guid: 7f6e781fc7ec95a4aac2ca22dcf739ac,
-        type: 2}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: 3ac8c2bbe6e455f428f9cdb719dfc657,
-        type: 3}
-    - target: {fileID: 114000013492093692, guid: 7f6e781fc7ec95a4aac2ca22dcf739ac,
-        type: 2}
-      propertyPath: rotate
-      value: LeftJoystickX
-      objectReference: {fileID: 0}
-    - target: {fileID: 114000013492093692, guid: 7f6e781fc7ec95a4aac2ca22dcf739ac,
-        type: 2}
-      propertyPath: hornAngle
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1000013780901616, guid: 7f6e781fc7ec95a4aac2ca22dcf739ac, type: 2}
-      propertyPath: m_TagString
-      value: AndyBody
-      objectReference: {fileID: 0}
-    - target: {fileID: 0}
-      propertyPath: m_Points.m_Paths.Array.data[0].Array.data[0].x
-      value: -0.04864788
-      objectReference: {fileID: 0}
-    - target: {fileID: 0}
-      propertyPath: m_Points.m_Paths.Array.data[0].Array.data[0].y
-      value: 0.057099283
-      objectReference: {fileID: 0}
-    - target: {fileID: 0}
-      propertyPath: m_Points.m_Paths.Array.data[0].Array.data[1].x
-      value: -0.04091072
-      objectReference: {fileID: 0}
-    - target: {fileID: 0}
-      propertyPath: m_Points.m_Paths.Array.data[0].Array.data[1].y
-      value: -0.04380387
-      objectReference: {fileID: 0}
-    - target: {fileID: 114000013492093692, guid: 7f6e781fc7ec95a4aac2ca22dcf739ac,
-        type: 2}
-      propertyPath: move
-      value: A
-      objectReference: {fileID: 0}
-    - target: {fileID: 0}
-      propertyPath: m_Points.m_Paths.Array.data[0].Array.data[0].x
-      value: -0.16652894
-      objectReference: {fileID: 0}
-    - target: {fileID: 0}
-      propertyPath: m_Points.m_Paths.Array.data[0].Array.data[0].y
-      value: 0.021178544
-      objectReference: {fileID: 0}
-    - target: {fileID: 0}
-      propertyPath: m_Points.m_Paths.Array.data[0].Array.data[1].x
-      value: -0.16990495
-      objectReference: {fileID: 0}
-    - target: {fileID: 0}
-      propertyPath: m_Points.m_Paths.Array.data[0].Array.data[1].y
-      value: -0.009788692
-      objectReference: {fileID: 0}
-    - target: {fileID: 0}
-      propertyPath: m_Points.m_Paths.Array.data[0].Array.data[2].x
-      value: -0.50428176
-      objectReference: {fileID: 0}
-    - target: {fileID: 0}
-      propertyPath: m_Points.m_Paths.Array.data[0].Array.data[2].y
-      value: -0.04383236
-      objectReference: {fileID: 0}
-    - target: {fileID: 0}
-      propertyPath: m_Points.m_Paths.Array.data[0].Array.data[3].x
-      value: -0.5003102
-      objectReference: {fileID: 0}
-    - target: {fileID: 0}
-      propertyPath: m_Points.m_Paths.Array.data[0].Array.data[3].y
-      value: 0.039256632
-      objectReference: {fileID: 0}
-    - target: {fileID: 4000010860789642, guid: 7f6e781fc7ec95a4aac2ca22dcf739ac, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: 1.833
-      objectReference: {fileID: 0}
-    - target: {fileID: 114000013492093692, guid: 7f6e781fc7ec95a4aac2ca22dcf739ac,
-        type: 2}
-      propertyPath: thrust
-      value: 1.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 114000013492093692, guid: 7f6e781fc7ec95a4aac2ca22dcf739ac,
-        type: 2}
-      propertyPath: movementThrust
-      value: 0.4
-      objectReference: {fileID: 0}
-    - target: {fileID: 50000012511789236, guid: 7f6e781fc7ec95a4aac2ca22dcf739ac,
-        type: 2}
-      propertyPath: m_Mass
-      value: 0.01
-      objectReference: {fileID: 0}
-    - target: {fileID: 50000012511789236, guid: 7f6e781fc7ec95a4aac2ca22dcf739ac,
-        type: 2}
-      propertyPath: m_LinearDrag
-      value: 20
-      objectReference: {fileID: 0}
-    - target: {fileID: 50000012511789236, guid: 7f6e781fc7ec95a4aac2ca22dcf739ac,
-        type: 2}
-      propertyPath: m_AngularDrag
-      value: 20
-      objectReference: {fileID: 0}
     - target: {fileID: 114000010363717676, guid: 7f6e781fc7ec95a4aac2ca22dcf739ac,
         type: 2}
       propertyPath: coolDownCircle
@@ -248,14 +142,17 @@ Prefab:
       objectReference: {fileID: 728301073}
     - target: {fileID: 114000010363717676, guid: 7f6e781fc7ec95a4aac2ca22dcf739ac,
         type: 2}
-      propertyPath: narwhalMovement
-      value: 
-      objectReference: {fileID: 1576513231}
-    - target: {fileID: 114000010363717676, guid: 7f6e781fc7ec95a4aac2ca22dcf739ac,
-        type: 2}
       propertyPath: scoreText
       value: 
       objectReference: {fileID: 766337651}
+    - target: {fileID: 1000014088132396, guid: 7f6e781fc7ec95a4aac2ca22dcf739ac, type: 2}
+      propertyPath: m_Name
+      value: Andy
+      objectReference: {fileID: 0}
+    - target: {fileID: 1000012498314650, guid: 7f6e781fc7ec95a4aac2ca22dcf739ac, type: 2}
+      propertyPath: m_TagString
+      value: AndyBody
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7f6e781fc7ec95a4aac2ca22dcf739ac, type: 2}
   m_IsPrefabParent: 0
@@ -1158,6 +1055,10 @@ Prefab:
       propertyPath: scoreText
       value: 
       objectReference: {fileID: 1834107709}
+    - target: {fileID: 1000012498314650, guid: 7f6e781fc7ec95a4aac2ca22dcf739ac, type: 2}
+      propertyPath: m_TagString
+      value: ThringiBody
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7f6e781fc7ec95a4aac2ca22dcf739ac, type: 2}
   m_IsPrefabParent: 0
@@ -1435,12 +1336,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   aspect: 3
---- !u!114 &1576513231 stripped
-MonoBehaviour:
-  m_PrefabParentObject: {fileID: 114000013492093692, guid: 7f6e781fc7ec95a4aac2ca22dcf739ac,
-    type: 2}
-  m_PrefabInternal: {fileID: 510727758}
-  m_Script: {fileID: 11500000, guid: e5c4324a622e14d45a6b2c765576264e, type: 3}
 --- !u!224 &1718646945 stripped
 RectTransform:
   m_PrefabParentObject: {fileID: 224000012229047236, guid: 481c582da35c44ad69c2279a8d237681,
