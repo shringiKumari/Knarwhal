@@ -37,15 +37,17 @@ public class Skewer : MonoBehaviour {
         // Activate and configure wound
         var wound = enemyParent.transform.Find ("wound");
         wound.gameObject.SetActive (true);
-        //Destroy (wound.gameObject.GetComponent<FixedJoint2D> ());
-        wound.position = parent.transform.TransformPoint (new Vector3 (1.6f, -0.4f));
+        wound.position = parent.transform.TransformPoint (new Vector3 (1.8f, -0.4f));
         wound.rotation = parent.transform.rotation;
-        //var j = wound.gameObject.AddComponent<FixedJoint2D> ();
-        //j.connectedBody = enemyParent.GetComponent<Rigidbody2D> ();
         // Activate skewer horn sprite
         var skewer = parent.transform.Find ("skewer");
         skewer.gameObject.SetActive (true);
         SetState (State.jabbed);
+        // Spawn a stab hole sprite
+        var stabhole = Instantiate(Resources.Load<GameObject>("stabhole")).transform;
+        stabhole.parent = enemyParent.transform;
+        stabhole.position = parent.transform.TransformPoint (new Vector3 (1.8f, -0.4f));
+        stabhole.rotation = parent.transform.rotation;
       }
     }
   }
@@ -76,7 +78,7 @@ public class Skewer : MonoBehaviour {
       }
     }
     else if (state == State.cooldown) {
-      if (lastChangeTime + 1 < Time.time) {
+      if (lastChangeTime + 0.3 < Time.time) {
         SetState (State.hunting);
       }
     }

@@ -49,6 +49,9 @@ TagManager:
   - name: Mask
     uniqueID: 425126519
     locked: 0
+  - name: StabWound
+    uniqueID: 2014211157
+    locked: 0
   - name: BloodiedHorn
     uniqueID: 1536232319
     locked: 0
