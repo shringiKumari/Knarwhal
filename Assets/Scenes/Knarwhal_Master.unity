@@ -1245,6 +1245,15 @@ Prefab:
       propertyPath: m_RootOrder
       value: 9
       objectReference: {fileID: 0}
+    - target: {fileID: 114000012530545002, guid: 88ded9e30316c47dea61b266514ebb4a,
+        type: 2}
+      propertyPath: translationSpeed
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 1000013052972804, guid: 88ded9e30316c47dea61b266514ebb4a, type: 2}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 88ded9e30316c47dea61b266514ebb4a, type: 2}
   m_IsPrefabParent: 0
@@ -1382,7 +1391,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pufferfish: {fileID: 2105911328}
-  spawnThreshholdTimer: 10
 --- !u!4 &1547182720
 Transform:
   m_ObjectHideFlags: 0

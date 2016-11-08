@@ -6,7 +6,10 @@ public class PufferfishSpawner : MonoBehaviour {
 	[SerializeField]
 	private GameObject pufferfish;
 	private float startTimer = 0f;
-	public float spawnThreshholdTimer = 5f;
+	private float spawnThreshholdTimer = 3f;
+
+	private float screenLimitMax = 10f;
+	private float screenLimitMin = -10f;
 
 	// Use this for initialization
 	void Start () {
@@ -15,23 +18,22 @@ public class PufferfishSpawner : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if ((pufferfish.transform.position.x >= 7f) && (pufferfish.activeSelf == true)) {
-			Debug.Log("not here???????????????????????????????????????");
+		if (((pufferfish.transform.position.x <= screenLimitMin) || (pufferfish.transform.position.x >= screenLimitMax))
+			&& (pufferfish.activeSelf == true)) {
 			pufferfish.SetActive (false);
 			startTimer = 0f;
 		}
 
 		if ((startTimer >= spawnThreshholdTimer) && (pufferfish.activeSelf == false)){
-			//Debug.Log("here???????????????????????????????????????");
 			pufferfish.SetActive (true);
-
 		}
 		startTimer += Time.deltaTime;
-		Debug.Log (startTimer);
+		//Debug.Log (startTimer);
 		//make wall layer collision gone
 		//spawn when timer && out of screen
 		// in pufferfish - make direction random.
 
+		//(pufferfish.transform.position.x >= screenLimitMax)
 
 	}
 }
