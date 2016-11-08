@@ -153,6 +153,10 @@ Prefab:
       propertyPath: m_TagString
       value: AndyBody
       objectReference: {fileID: 0}
+    - target: {fileID: 1000014088132396, guid: 7f6e781fc7ec95a4aac2ca22dcf739ac, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7f6e781fc7ec95a4aac2ca22dcf739ac, type: 2}
   m_IsPrefabParent: 0
@@ -874,7 +878,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingOrder: -5
   m_Sprite: {fileID: 21300000, guid: ab08b1a962f1a48a08c172ac30b4aa66, type: 3}
-  m_Color: {r: 0.78341264, g: 0.92856914, b: 1, a: 0.622}
+  m_Color: {r: 0.81790656, g: 0.82192904, b: 0.9117647, a: 0.622}
   m_FlipX: 0
   m_FlipY: 0
 --- !u!4 &1198110919
@@ -1253,6 +1257,11 @@ Prefab:
     - target: {fileID: 1000013052972804, guid: 88ded9e30316c47dea61b266514ebb4a, type: 2}
       propertyPath: m_Layer
       value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000012530545002, guid: 88ded9e30316c47dea61b266514ebb4a,
+        type: 2}
+      propertyPath: pufferAngularVelocity
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 88ded9e30316c47dea61b266514ebb4a, type: 2}

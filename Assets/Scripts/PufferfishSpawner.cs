@@ -21,6 +21,7 @@ public class PufferfishSpawner : MonoBehaviour {
 		if (((pufferfish.transform.position.x <= screenLimitMin) || (pufferfish.transform.position.x >= screenLimitMax))
 			&& (pufferfish.activeSelf == true)) {
 			pufferfish.SetActive (false);
+			pufferfish.transform.localScale = new Vector3 (1, 1, 0);
 			startTimer = 0f;
 		}
 
