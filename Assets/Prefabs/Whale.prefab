@@ -21,7 +21,7 @@ GameObject:
   - 4: {fileID: 4000012982196576}
   m_Layer: 0
   m_Name: wound
-  m_TagString: Untagged
+  m_TagString: Wound
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -619,6 +619,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   WinScore: 5
   winscreen: {fileID: 1000010782523196, guid: 6e0e06ddc270dc947b6065d53ac597aa, type: 2}
+  hud: {fileID: 0}
 --- !u!114 &114000012542377238
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -631,6 +632,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   winscreen: {fileID: 1000010782523196, guid: 6e0e06ddc270dc947b6065d53ac597aa, type: 2}
+  hud: {fileID: 0}
+  scoreText: {fileID: 0}
 --- !u!114 &114000013492093692
 MonoBehaviour:
   m_ObjectHideFlags: 1

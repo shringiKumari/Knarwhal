@@ -24,6 +24,7 @@ public class GameWinScreen : MonoBehaviour {
     void ResetScreen() // reactivate HUD and exit win screen
     {
         hud.SetActive(true);
+
         winscreen.SetActive(false);
     }
 

@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 
 public class NarwhalScoring : MonoBehaviour {
@@ -10,13 +11,18 @@ public class NarwhalScoring : MonoBehaviour {
 	private string winner;
 	public GameObject winscreen;
     public GameObject hud;
+    private Text ScoreAndy;
+    private Text ScoreThringi;
 
-	public ScoreUpdateEvent updateScore = new ScoreUpdateEvent();
+    public ScoreUpdateEvent updateScore = new ScoreUpdateEvent();
 
 	// Use this for initialization
 	void Start () {
-
-	}
+        GameObject andyscore = GameObject.Find("ScoreUpdateAndy");
+        ScoreAndy = andyscore.GetComponent<Text>();
+        GameObject thringiscore = GameObject.Find("ScoreUpdateThringi");
+        ScoreThringi = thringiscore.GetComponent<Text>();
+    }
 
 	IEnumerator OnTriggerEnter2D(Collider2D vitalhit) {
 
@@ -35,18 +41,17 @@ public class NarwhalScoring : MonoBehaviour {
 				updateScore.Invoke (AndyScore); //Trigger for UI
 			}
 		}
-
-		WinCheck(); //check winstate
-		yield return new WaitForSecondsRealtime (6); //Delay before scoring possible again (time skewered)
+        WinCheck(); //check winstate
+        yield return new WaitForSecondsRealtime (6); //Delay before scoring possible again (time skewered)
 		ScoreReady = true;
 	}
 
 	void WinCheck() {
 		if (AndyScore == WinScore || ThringiScore == WinScore) {
-            int scoreclear = 0;
-            AndyScore = scoreclear;
-            ThringiScore = scoreclear;
-            updateScore.Invoke(scoreclear); //clear score on hud
+            AndyScore = 0;
+            ThringiScore = 0;
+            ScoreAndy.text = "0"; // Reset score on HUD
+            ScoreThringi.text = "0"; // Reset score on HUD
             hud.SetActive(false);
 			winscreen.SetActive (true);
 		}
@@ -54,6 +59,6 @@ public class NarwhalScoring : MonoBehaviour {
 
     // Update is called once per frame
     void Update () {
-
-	}
+  
+    }
 }

@@ -21,7 +21,6 @@ public class SceneUIManager : MonoBehaviour {
 	private Text scoreText;
 
 	void Start () {
-
 		coolDownCircle.fillAmount = 0.0f;
 		narwhalScoring = GetComponent<NarwhalScoring> (); 
 		narwhalMovement = GetComponent<NarwhalMovement> (); 
