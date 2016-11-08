@@ -16,6 +16,7 @@ public class SceneUIManager : MonoBehaviour {
 	private NarwhalScoring narwhalScoring;
 	private int score;
 
+
 	[SerializeField]
 	private Text scoreText;
 
@@ -26,8 +27,7 @@ public class SceneUIManager : MonoBehaviour {
 		narwhalMovement = GetComponent<NarwhalMovement> (); 
 		narwhalMovement.dashStarted.AddListener (OnDashStarted);
 		narwhalScoring.updateScore.AddListener (ScoreUpdate);
-
-    }
+	}
 
     void OnDashStarted (float dashCoolDownTimer) {
 		dashHasStarted = true;
@@ -38,6 +38,10 @@ public class SceneUIManager : MonoBehaviour {
 	void ScoreUpdate (int score) {
 		//this.score = score;
 		scoreText.text = score.ToString();
+	}
+
+	void ScoreClear (int score) {
+		Debug.Log ("clear called");
 	}
 
 

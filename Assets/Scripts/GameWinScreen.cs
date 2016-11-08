@@ -5,19 +5,31 @@ using System.Collections;
 public class GameWinScreen : MonoBehaviour {
 
     private NarwhalScoring narwhalScoring;
-    public GameObject textarea;
+	public GameObject winscreen;
 
 
     // Use this for initialization
-    void Start () {
-        narwhalScoring = GetComponent<NarwhalScoring>();
-        narwhalScoring.winState.AddListener(HasWon);
-        textarea = GameObject.Find("/WinPanel/GameWinText");
-    }
+	void Start () {
 
-    void HasWon(string winner) {
- 
-    }
+	}
+
+	public void PlayClick() {
+		ResetScore ();
+		winscreen.SetActive (false);
+	}
+
+	void ResetScore () {
+		int clear = 0;
+		NarwhalScoring.AndyScore = clear;
+		NarwhalScoring.ThringiScore = clear;
+		//scoreText.text = clear.ToString ();
+	}
+
+	public void QuitClick(){
+		Application.Quit ();
+
+	}
+		
 
     // Update is called once per frame
     void Update () {

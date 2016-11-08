@@ -3,15 +3,14 @@ using System.Collections;
 
 public class NarwhalScoring : MonoBehaviour {
 
-	private int AndyScore;
-	private int ThringiScore;
+	public static int AndyScore;
+	public static int ThringiScore;
 	private bool ScoreReady = true;
     public int WinScore;
     private string winner;
     public GameObject winscreen;
 
 	public ScoreUpdateEvent updateScore = new ScoreUpdateEvent();
-    public GameWinEvent winState = new GameWinEvent();
 
 	// Use this for initialization
 	void Start () {
@@ -25,7 +24,6 @@ public class NarwhalScoring : MonoBehaviour {
 				ThringiScore += 1;
 				ScoreReady = false;
 				updateScore.Invoke (ThringiScore); //Trigger for UI
-				Debug.Log (ThringiScore);
 			}
 		}
 
@@ -34,23 +32,22 @@ public class NarwhalScoring : MonoBehaviour {
 				AndyScore += 1;
 				ScoreReady = false;
 				updateScore.Invoke (AndyScore); //Trigger for UI
-				Debug.Log (AndyScore);
 			}
 		}
 
         WinCheck();
-        yield return new WaitForSecondsRealtime (3); //Delay before scoring possible again, for disengage
+		yield return new WaitForSecondsRealtime (6); //Delay before scoring possible again (time skewered)
 		ScoreReady = true;
 	}
 	
     void WinCheck() {
-        if (AndyScore == WinScore || ThringiScore == WinScore) {
-            winner = "test";
-            winState.Invoke (winner); //Trigger for UI
-            winscreen.SetActive(true);
-            Debug.Log("Game Won");
-        }
+		if (AndyScore == WinScore || ThringiScore == WinScore) {
+			Debug.Log ("winner");
+			winscreen.SetActive (true);
+		}
     }
+		
+
 
 	// Update is called once per frame
 	void Update () {

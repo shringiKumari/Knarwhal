@@ -186,8 +186,7 @@ GameObject:
   - 50: {fileID: 50000012511789236}
   - 114: {fileID: 114000010551003026}
   - 114: {fileID: 114000010363717676}
-  - 114: {fileID: 114000012542377238}
-  - 114: {fileID: 114000010224803962}
+  - 114: {fileID: 114000012878327990}
   m_Layer: 0
   m_Name: Whale
   m_TagString: Untagged
@@ -535,18 +534,6 @@ BoxCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
---- !u!114 &114000010224803962
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1000014088132396}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 336e18e1dd8fc4824b099043933fd4f1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  textarea: {fileID: 0}
 --- !u!114 &114000010363717676
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -559,7 +546,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   coolDownCircle: {fileID: 0}
-  scoreText: {fileID: 0}
 --- !u!114 &114000010551003026
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -572,8 +558,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   WinScore: 5
-  winscreen: {fileID: 0}
---- !u!114 &114000012542377238
+  winscreen: {fileID: 1000010782523196, guid: 6e0e06ddc270dc947b6065d53ac597aa, type: 2}
+--- !u!114 &114000012878327990
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -585,6 +571,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   textarea: {fileID: 0}
+  winscreen: {fileID: 1000010782523196, guid: 6e0e06ddc270dc947b6065d53ac597aa, type: 2}
 --- !u!114 &114000013492093692
 MonoBehaviour:
   m_ObjectHideFlags: 1
