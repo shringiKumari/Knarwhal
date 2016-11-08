@@ -66,6 +66,13 @@ public class PufferMovement : MonoBehaviour {
 										new Vector3 (0, 0, Camera.main.transform.position.z);
 	}
 			
+	void OnTriggerEnter2D(Collider2D bodyhit)
+	{
+		//Debug.Log("hereerereree!!!!!!!");
+		//update score
+		//for (float i = transform.localScale )
+
+	}
 
 	void FixedUpdate () {
 
@@ -75,4 +82,5 @@ public class PufferMovement : MonoBehaviour {
 		rb.angularVelocity= pufferAngularVelocity;
 	
 	}
+		
 }
