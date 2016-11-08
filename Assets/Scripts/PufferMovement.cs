@@ -12,11 +12,11 @@ public class PufferMovement : MonoBehaviour {
 	public float thetaStep = 0.5f;
 	public float translationSpeed = 30.0f;
 
-	public float pufferSpwanXmin = 0.05f;
-	public float pufferSpwanXmax = 0.9f;
+	private float pufferSpwanXmin = 0.05f;
+	private float pufferSpwanXmax = 0.9f;
 
-	public float pufferSpwanYmin = 0.05f;
-	public float pufferSpwanYmax = 0.9f;
+	private float pufferSpwanYmin = 0.05f;
+	private float pufferSpwanYmax = 0.9f;
 
 	private float spawnMidX;
 
@@ -32,10 +32,11 @@ public class PufferMovement : MonoBehaviour {
 		transform.position = Camera.main.ViewportToWorldPoint(randomSpawnPosition) - 
 										new Vector3 (0, 0, Camera.main.transform.position.z);
 		spawnMidX = (pufferSpwanXmin + pufferSpwanXmax) / 2;
-		if (transform.position.x < spawnMidX) {
+		Debug.Log (transform.position);
+		if (randomSpawnPosition.x < spawnMidX) {
 			direction = 1;
 		} else {
-			direction = -1;
+			direction = 1;//-1
 		}
 	}
 			

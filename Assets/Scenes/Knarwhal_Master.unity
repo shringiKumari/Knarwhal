@@ -1382,6 +1382,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pufferfish: {fileID: 2105911328}
+  spawnThreshholdTimer: 10
 --- !u!4 &1547182720
 Transform:
   m_ObjectHideFlags: 0
