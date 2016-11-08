@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+//using System;
 
 public class PufferMovement : MonoBehaviour {
 
@@ -12,7 +13,7 @@ public class PufferMovement : MonoBehaviour {
 	public float thetaStep = 0.5f;
 	private float translationSpeed = 30.0f;
 	public float pufferAngularVelocity = 20.0f;
-	private float speedMin = 30f;
+	private float speedMin = 90f;
 	private float speedMax = 90f;
 
 	private float pufferSpwanXLeft = -0.01f;
@@ -33,13 +34,23 @@ public class PufferMovement : MonoBehaviour {
 
 	private float scalePuffer;
 
+	private GameObject narwhalAndy;
+	private GameObject narwhalThringi;
+
+
+	Vector3 localScale;
 
 	void Start () {
-		rb = gameObject.GetComponent<Rigidbody2D> ();		
+		rb = gameObject.GetComponent<Rigidbody2D> ();	
+		localScale = transform.localScale;
+
+
 	}
 
 	void OnEnable () {
 		
+		narwhalAndy = GameObject.FindGameObjectWithTag ("AndyBody").transform.parent.gameObject;
+		narwhalThringi = GameObject.FindGameObjectWithTag ("ThringiBody").transform.parent.gameObject;
 		//random color
 		gameObject.GetComponent<SpriteRenderer>().material.color = 
 			Color.black + new Color(Random.Range(redMin, redMax), Random.Range(greenMin, greenMax), 1f); 
@@ -51,10 +62,13 @@ public class PufferMovement : MonoBehaviour {
 		//random speed 
 		translationSpeed = Random.Range (speedMin, speedMax);
 
-		//random position
+		//set random position
+		transform.position = GetSpawnPositionAndSetDirection ();
+	}
+
+	Vector3 GetSpawnPositionAndSetDirection(){
 		Vector2 randomSpawnPosition = new Vector3 (Random.Range (0f, 1f), 
-										Random.Range (pufferSpwanYmin, pufferSpwanYmax),0);
-		Debug.Log (randomSpawnPosition.x);
+			Random.Range (pufferSpwanYmin, pufferSpwanYmax),0);
 		if (randomSpawnPosition.x < spawnX) {
 			randomSpawnPosition.x = pufferSpwanXLeft;
 			direction = 1;
@@ -62,16 +76,36 @@ public class PufferMovement : MonoBehaviour {
 			randomSpawnPosition.x = pufferSpwanXRight;
 			direction = -1;
 		}
-		transform.position = Camera.main.ViewportToWorldPoint(randomSpawnPosition) - 
-										new Vector3 (0, 0, Camera.main.transform.position.z);
+		Vector3 tempPosition = Camera.main.ViewportToWorldPoint(randomSpawnPosition) - 
+			new Vector3 (0, 0, Camera.main.transform.position.z);
+		float distance1 = Vector2.Distance (narwhalAndy.transform.position, tempPosition);
+		float distance2 = Vector2.Distance (narwhalThringi.transform.position, tempPosition);
+		Debug.Log ("distanceA " + distance1);
+		Debug.Log ("distanceB " + distance2);
+		if (distance1 < 3.0 || distance2 < 3.0) {
+			GetSpawnPositionAndSetDirection ();
+		}
+		return tempPosition;
 	}
 			
-	void OnTriggerEnter2D(Collider2D bodyhit)
+	IEnumerator OnTriggerEnter2D(Collider2D bodyhit)
 	{
-		//Debug.Log("hereerereree!!!!!!!");
-		//update score
-		//for (float i = transform.localScale )
-
+		if (gameObject.activeSelf == true) {
+			if (bodyhit.tag == "AndyBody") {
+				while (transform.localScale.x > float.MinValue) {
+					yield return new WaitForSeconds (0.01f);
+					transform.localScale = Vector3.Lerp (transform.localScale, Vector3.zero, 0.1f);
+				}
+				gameObject.SetActive (false);
+			}
+			if (bodyhit.tag == "ThringiBody") {	
+				while (transform.localScale.x > float.MinValue) {
+					yield return new WaitForSeconds (0.01f);
+					transform.localScale = Vector3.Lerp (transform.localScale, Vector3.zero, 0.1f);
+				}
+				gameObject.SetActive (false);
+			}
+		}
 	}
 
 	void FixedUpdate () {
