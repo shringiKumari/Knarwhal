@@ -32,12 +32,12 @@ public class PufferMovement : MonoBehaviour {
 	void OnEnable () {
 		
 		Color thiscolor = Random.ColorHSV ();
-		gameObject.GetComponent<SpriteRenderer>().material.color = thiscolor + new Color(182/255, 125/255, 1.0f); 
+		gameObject.GetComponent<SpriteRenderer>().material.color = thiscolor + new Color(225/255, 200/255, 1f); 
 		//Debug.Log (thisColor);
 		//Color.RGBToHSV (thisColor, out hue, out s, out v);
 		//Debug.Log ("hue" + hue);
 
-	
+	 
 		Vector2 randomSpawnPosition = new Vector3 (Random.Range (0f, 1f), 
 										Random.Range (pufferSpwanYmin, pufferSpwanYmax),0);
 		Debug.Log (randomSpawnPosition.x);
