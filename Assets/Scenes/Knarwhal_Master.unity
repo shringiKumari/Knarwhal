@@ -135,6 +135,11 @@ Prefab:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 114000010551003026, guid: 7f6e781fc7ec95a4aac2ca22dcf739ac,
+        type: 2}
+      propertyPath: winscreen
+      value: 
+      objectReference: {fileID: 1052857529}
     - target: {fileID: 114000010363717676, guid: 7f6e781fc7ec95a4aac2ca22dcf739ac,
         type: 2}
       propertyPath: coolDownCircle
@@ -149,28 +154,6 @@ Prefab:
       propertyPath: m_Name
       value: Andy
       objectReference: {fileID: 0}
-    - target: {fileID: 1000012498314650, guid: 7f6e781fc7ec95a4aac2ca22dcf739ac, type: 2}
-      propertyPath: m_TagString
-      value: AndyBody
-      objectReference: {fileID: 0}
-    - target: {fileID: 114000010551003026, guid: 7f6e781fc7ec95a4aac2ca22dcf739ac,
-        type: 2}
-      propertyPath: WinScore
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 1000010077385162, guid: 7f6e781fc7ec95a4aac2ca22dcf739ac, type: 2}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1000013780901616, guid: 7f6e781fc7ec95a4aac2ca22dcf739ac, type: 2}
-      propertyPath: m_TagString
-      value: Untagged
-      objectReference: {fileID: 0}
-    - target: {fileID: 114000010551003026, guid: 7f6e781fc7ec95a4aac2ca22dcf739ac,
-        type: 2}
-      propertyPath: winscreen
-      value: 
-      objectReference: {fileID: 1052857529}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7f6e781fc7ec95a4aac2ca22dcf739ac, type: 2}
   m_IsPrefabParent: 0
@@ -862,8 +845,7 @@ Prefab:
       propertyPath: m_Name
       value: Thringi
       objectReference: {fileID: 0}
-    - target: {fileID: 212000010718576180, guid: 7f6e781fc7ec95a4aac2ca22dcf739ac,
-        type: 2}
+    - target: {fileID: 0}
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 21300000, guid: 68259f19bbd6d024288e108802dedf29,
@@ -987,6 +969,18 @@ Prefab:
       propertyPath: winscreen
       value: 
       objectReference: {fileID: 1052857529}
+    - target: {fileID: 212000012326727788, guid: 7f6e781fc7ec95a4aac2ca22dcf739ac,
+        type: 2}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 68259f19bbd6d024288e108802dedf29,
+        type: 3}
+    - target: {fileID: 212000013375712944, guid: 7f6e781fc7ec95a4aac2ca22dcf739ac,
+        type: 2}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300002, guid: 68259f19bbd6d024288e108802dedf29,
+        type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7f6e781fc7ec95a4aac2ca22dcf739ac, type: 2}
   m_IsPrefabParent: 0
@@ -1269,23 +1263,6 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1824255668}
---- !u!1 &1830234034 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1000014088132396, guid: 7f6e781fc7ec95a4aac2ca22dcf739ac,
-    type: 2}
-  m_PrefabInternal: {fileID: 510727758}
---- !u!114 &1830234041
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1830234034}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 336e18e1dd8fc4824b099043933fd4f1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  textarea: {fileID: 0}
 --- !u!114 &1834107709 stripped
 MonoBehaviour:
   m_PrefabParentObject: {fileID: 114000014199994682, guid: 481c582da35c44ad69c2279a8d237681,
