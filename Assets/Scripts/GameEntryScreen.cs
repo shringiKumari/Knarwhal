@@ -16,17 +16,16 @@ public class GameEntryScreen : MonoBehaviour {
 
 	public void OnClick (){
 		button.gameObject.SetActive(false);
+		readySetJoust.gameObject.SetActive (true);
 		StartCoroutine(Tick());
 	}
 
 	IEnumerator Tick() {
-		yield return new WaitForSeconds(0.4f);
-		readySetJoust.gameObject.SetActive (true);
-		yield return new WaitForSeconds(0.8f);
+		yield return new WaitForSeconds(0.5f);
 		readySetJoust.text = "Set";
-		yield return new WaitForSeconds(0.8f);
+		yield return new WaitForSeconds(0.5f);
 		readySetJoust.text = "Joust";
-		yield return new WaitForSeconds(0.8f);
+		yield return new WaitForSeconds(0.5f);
 		gameObject.SetActive (false);
 	}
 }
