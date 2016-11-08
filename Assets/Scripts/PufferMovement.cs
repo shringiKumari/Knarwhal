@@ -49,7 +49,7 @@ public class PufferMovement : MonoBehaviour {
 		transform.localScale = transform.localScale * scalePuffer;
 
 		//random speed 
-		translationSpeed = Random.Range (speedMin, scaleMax);
+		translationSpeed = Random.Range (speedMin, speedMax);
 
 		//random position
 		Vector2 randomSpawnPosition = new Vector3 (Random.Range (0f, 1f), 
@@ -64,7 +64,6 @@ public class PufferMovement : MonoBehaviour {
 		}
 		transform.position = Camera.main.ViewportToWorldPoint(randomSpawnPosition) - 
 										new Vector3 (0, 0, Camera.main.transform.position.z);
-		Debug.Log (translationSpeed);
 	}
 			
 
