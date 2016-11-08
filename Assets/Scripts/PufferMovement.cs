@@ -19,6 +19,9 @@ public class PufferMovement : MonoBehaviour {
 	private float pufferSpwanYmax = 0.9f;
 
 	private float spawnX = 0.5f;
+	private float hue;
+	private float s;
+	private float v;
 
 
 	// Use this for initialization
@@ -26,7 +29,15 @@ public class PufferMovement : MonoBehaviour {
 		rb = gameObject.GetComponent<Rigidbody2D> ();		
 	}
 
-	void OnEnable () {		 
+	void OnEnable () {
+		
+		Color thiscolor = Random.ColorHSV ();
+		gameObject.GetComponent<SpriteRenderer>().material.color = thiscolor + new Color(182/255, 125/255, 1.0f); 
+		//Debug.Log (thisColor);
+		//Color.RGBToHSV (thisColor, out hue, out s, out v);
+		//Debug.Log ("hue" + hue);
+
+	
 		Vector2 randomSpawnPosition = new Vector3 (Random.Range (0f, 1f), 
 										Random.Range (pufferSpwanYmin, pufferSpwanYmax),0);
 		Debug.Log (randomSpawnPosition.x);
@@ -42,12 +53,11 @@ public class PufferMovement : MonoBehaviour {
 		Debug.Log (transform.position);
 	}
 			
-	// Update is called once per frame
+
 	void FixedUpdate () {
 		theta += thetaStep;
 		Vector3 referenceVector = new Vector2 (referencePositionX * direction, Mathf.Sin(theta) * referencePositionY);
 		rb.velocity = referenceVector.normalized * Time.fixedDeltaTime * translationSpeed;
-		//Debug.Log ("Here");
 	
 	}
 }
