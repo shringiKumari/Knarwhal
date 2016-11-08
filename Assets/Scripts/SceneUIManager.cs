@@ -40,12 +40,6 @@ public class SceneUIManager : MonoBehaviour {
 		scoreText.text = score.ToString();
 	}
 
-	void ScoreClear (int score) {
-		Debug.Log ("clear called");
-	}
-
-
-
 	void Update () {
 
 		if (dashHasStarted) {

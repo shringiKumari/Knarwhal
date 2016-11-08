@@ -6,6 +6,9 @@ public class GameEntryScreen : MonoBehaviour {
 
 	private Button button;
 	private Text readySetJoust;
+    public GameObject andy;
+    public GameObject thringi;
+
 	// Use this for initialization
 	void Start () {
 		button = GetComponentInChildren<Button>();
@@ -17,7 +20,7 @@ public class GameEntryScreen : MonoBehaviour {
 	public void OnClick (){
 		button.gameObject.SetActive(false);
 		StartCoroutine(Tick());
-	}
+    }
 
 	IEnumerator Tick() {
 		yield return new WaitForSeconds(0.4f);
@@ -27,6 +30,8 @@ public class GameEntryScreen : MonoBehaviour {
 		yield return new WaitForSeconds(0.8f);
 		readySetJoust.text = "Joust";
 		yield return new WaitForSeconds(0.8f);
-		gameObject.SetActive (false);
-	}
+        andy.SetActive(true); // activate NARWHAL CONTROL
+        thringi.SetActive(true); // activate NARWHAL CONTROL
+        gameObject.SetActive(false);
+    }
 }

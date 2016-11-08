@@ -9,6 +9,7 @@ public class NarwhalScoring : MonoBehaviour {
 	public int WinScore;
 	private string winner;
 	public GameObject winscreen;
+    public GameObject hud;
 
 	public ScoreUpdateEvent updateScore = new ScoreUpdateEvent();
 
@@ -19,7 +20,7 @@ public class NarwhalScoring : MonoBehaviour {
 
 	IEnumerator OnTriggerEnter2D(Collider2D vitalhit) {
 
-		if (vitalhit.tag == "AndyBody") {
+		if (vitalhit.tag == "AndyBody") { // Add point for Thringi when Andy is hit
 			if (ScoreReady == true) {
 				ThringiScore += 1;
 				ScoreReady = false;
@@ -27,7 +28,7 @@ public class NarwhalScoring : MonoBehaviour {
 			}
 		}
 
-		if (vitalhit.tag == "ThringiBody") {
+		if (vitalhit.tag == "ThringiBody") { // Add point for Andy when Thringi is hit
 			if (ScoreReady == true) {
 				AndyScore += 1;
 				ScoreReady = false;
@@ -35,22 +36,24 @@ public class NarwhalScoring : MonoBehaviour {
 			}
 		}
 
-		WinCheck();
+		WinCheck(); //check winstate
 		yield return new WaitForSecondsRealtime (6); //Delay before scoring possible again (time skewered)
 		ScoreReady = true;
 	}
 
 	void WinCheck() {
 		if (AndyScore == WinScore || ThringiScore == WinScore) {
-			Debug.Log ("winner");
+            int scoreclear = 0;
+            AndyScore = scoreclear;
+            ThringiScore = scoreclear;
+            updateScore.Invoke(scoreclear); //clear score on hud
+            hud.SetActive(false);
 			winscreen.SetActive (true);
 		}
 	}
 
-
-
-	// Update is called once per frame
-	void Update () {
+    // Update is called once per frame
+    void Update () {
 
 	}
 }
