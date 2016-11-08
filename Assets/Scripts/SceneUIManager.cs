@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
+using System;
 
 public class SceneUIManager : MonoBehaviour {
 
@@ -26,9 +27,9 @@ public class SceneUIManager : MonoBehaviour {
 		narwhalMovement.dashStarted.AddListener (OnDashStarted);
 		narwhalScoring.updateScore.AddListener (ScoreUpdate);
 
-	}
+    }
 
-	void OnDashStarted (float dashCoolDownTimer) {
+    void OnDashStarted (float dashCoolDownTimer) {
 		dashHasStarted = true;
 		this.dashCoolDownTimer = dashCoolDownTimer;
 
@@ -38,6 +39,8 @@ public class SceneUIManager : MonoBehaviour {
 		//this.score = score;
 		scoreText.text = score.ToString();
 	}
+
+
 
 	void Update () {
 

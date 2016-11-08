@@ -151,7 +151,7 @@ GameObject:
   - 60: {fileID: 60000014022376730}
   m_Layer: 12
   m_Name: BodyCollision
-  m_TagString: AndyBody
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -186,6 +186,7 @@ GameObject:
   - 50: {fileID: 50000012511789236}
   - 114: {fileID: 114000010551003026}
   - 114: {fileID: 114000010363717676}
+  - 114: {fileID: 114000012542377238}
   m_Layer: 0
   m_Name: Whale
   m_TagString: Untagged
@@ -557,6 +558,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4aaf13c0a24454c23979491fd5f8aef4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  WinScore: 5
+  winscreen: {fileID: 1000010782523196, guid: 6e0e06ddc270dc947b6065d53ac597aa, type: 2}
+--- !u!114 &114000012542377238
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000014088132396}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 336e18e1dd8fc4824b099043933fd4f1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  textarea: {fileID: 0}
 --- !u!114 &114000013492093692
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -570,10 +585,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rotationSpeed: 500
   translationSpeed: 400
-  move: A
-  rotate: LeftJoystickX
-  dash: X
-  spout: RB
+  move: A_2
+  rotate: LeftJoystickX_2
+  dash: X_2
+  spout: RB_2
   hornAngle: 0
   thrust: 1.5
   movementThrust: 0.4

@@ -9,3 +9,7 @@ public class DashStartedEvent : UnityEvent<float>{
 public class ScoreUpdateEvent : UnityEvent<int>{
 
 }
+
+public class GameWinEvent : UnityEvent<string>{
+
+}

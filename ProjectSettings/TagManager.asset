@@ -8,6 +8,7 @@ TagManager:
   - ThringiBody
   - ReadySetJoust
   - GameEntryScreen
+  - WinScreen
   layers:
   - Default
   - TransparentFX
