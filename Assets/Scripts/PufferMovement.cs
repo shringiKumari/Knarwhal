@@ -16,8 +16,8 @@ public class PufferMovement : MonoBehaviour {
 	private float speedMin = 45f;
 	private float speedMax = 90f;
 
-	private float pufferSpwanXLeft = -10.0f;
-	private float pufferSpwanXRight = 10.0f;
+	private float pufferSpwanXLeft = -15.0f;
+	private float pufferSpwanXRight = 15.0f;
 
 	private float pufferSpwanYmin = 0.05f;
 	private float pufferSpwanYmax = 0.9f;
@@ -25,7 +25,7 @@ public class PufferMovement : MonoBehaviour {
 	private float scaleMin = 0.9f;
 	private float scaleMax = 2.0f;
 
-	private float spawnX = 5f;
+	private float spawnX = 7.5f;
 
 	private float redMin = 0.4f;
 	private float redMax = 0.7f;
