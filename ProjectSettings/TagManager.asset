@@ -9,6 +9,7 @@ TagManager:
   - ReadySetJoust
   - GameEntryScreen
   - WinScreen
+  - Wound
   layers:
   - Default
   - TransparentFX

@@ -21,7 +21,6 @@ public class SceneUIManager : MonoBehaviour {
 	private Text scoreText;
 
 	void Start () {
-
 		coolDownCircle.fillAmount = 0.0f;
 		narwhalScoring = GetComponent<NarwhalScoring> (); 
 		narwhalMovement = GetComponent<NarwhalMovement> (); 
@@ -39,12 +38,6 @@ public class SceneUIManager : MonoBehaviour {
 		//this.score = score;
 		scoreText.text = score.ToString();
 	}
-
-	void ScoreClear (int score) {
-		Debug.Log ("clear called");
-	}
-
-
 
 	void Update () {
 
