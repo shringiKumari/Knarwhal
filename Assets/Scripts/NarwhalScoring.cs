@@ -15,7 +15,7 @@ public class NarwhalScoring : MonoBehaviour {
 
 	IEnumerator OnTriggerEnter2D(Collider2D bodyhit) {
 
-		if (bodyhit.tag == "AndyBody") {
+		if (bodyhit.tag == "AndyBody"){
 			if (ScoreReady == true) {
 				ThringiScore += 1;
 				ScoreReady = false;
@@ -30,6 +30,19 @@ public class NarwhalScoring : MonoBehaviour {
 				ScoreReady = false;
 				updateScore.Invoke (AndyScore); //Trigger for UI
 				Debug.Log (AndyScore);
+			}
+		}
+		if (bodyhit.tag == "Pufferfish") {
+			if (ScoreReady == true) {
+				if (gameObject.name == "Andy") {
+					AndyScore -= 1;
+					updateScore.Invoke (AndyScore);
+				}
+				if (gameObject.name == "Thringi") {
+					ThringiScore -= 1;
+					updateScore.Invoke (ThringiScore);
+				}
+				ScoreReady = false;
 			}
 		}
 		yield return new WaitForSecondsRealtime (3);

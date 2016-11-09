@@ -21,13 +21,15 @@ GameObject:
   - 4: {fileID: 4000011184835682}
   - 212: {fileID: 212000012889497950}
   - 114: {fileID: 114000012530545002}
+  - 50: {fileID: 50000012739209612}
+  - 58: {fileID: 58000010999745336}
   m_Layer: 13
   m_Name: Pufferfish
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &4000011184835682
 Transform:
   m_ObjectHideFlags: 1
@@ -41,6 +43,37 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
+--- !u!50 &50000012739209612
+Rigidbody2D:
+  serializedVersion: 2
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000013052972804}
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_IsKinematic: 0
+  m_Interpolate: 1
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
+--- !u!58 &58000010999745336
+CircleCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000013052972804}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.5
 --- !u!114 &114000012530545002
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -53,7 +86,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   thetaStep: 0.05
-  translationSpeed: 15
+  pufferAngularVelocity: 10
 --- !u!212 &212000012889497950
 SpriteRenderer:
   m_ObjectHideFlags: 1

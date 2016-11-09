@@ -38,13 +38,8 @@ public class PufferMovement : MonoBehaviour {
 	private GameObject narwhalThringi;
 
 
-	Vector3 localScale;
-
 	void Start () {
-		rb = gameObject.GetComponent<Rigidbody2D> ();	
-		localScale = transform.localScale;
-
-
+		rb = gameObject.GetComponent<Rigidbody2D> ();
 	}
 
 	void OnEnable () {
@@ -82,7 +77,7 @@ public class PufferMovement : MonoBehaviour {
 		float distance2 = Vector2.Distance (narwhalThringi.transform.position, tempPosition);
 		Debug.Log ("distanceA " + distance1);
 		Debug.Log ("distanceB " + distance2);
-		if (distance1 < 3.0 || distance2 < 3.0) {
+		if (distance1 < 3.5f || distance2 < 3.5f) {
 			GetSpawnPositionAndSetDirection ();
 		}
 		return tempPosition;
