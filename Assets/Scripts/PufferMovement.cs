@@ -63,21 +63,30 @@ public class PufferMovement : MonoBehaviour {
 	Vector3 GetSpawnPositionAndSetDirection(){
 		Vector2 randomSpawnPosition = new Vector3 (Random.Range (0f, 1f), 
 			Random.Range (pufferSpwanYmin, pufferSpwanYmax),0);
-		if (randomSpawnPosition.x < spawnX) {
+
+		/*if (randomSpawnPosition.x < spawnX) {
 			randomSpawnPosition.x = pufferSpwanXLeft;
 			direction = 1;
 		} else {
 			randomSpawnPosition.x = pufferSpwanXRight;
 			direction = -1;
-		}
+		}*/
+
+		//Debug.Log (randomSpawnPosition.x);
+
 		Vector3 tempPosition = Camera.main.ViewportToWorldPoint(randomSpawnPosition) - 
 			new Vector3 (0, 0, Camera.main.transform.position.z);
 		float distance1 = Vector2.Distance (narwhalAndy.transform.position, tempPosition);
 		float distance2 = Vector2.Distance (narwhalThringi.transform.position, tempPosition);
-		Debug.Log ("distanceA " + distance1);
-		Debug.Log ("distanceB " + distance2);
 		if (distance1 < 3.5f || distance2 < 3.5f) {
 			GetSpawnPositionAndSetDirection ();
+		}
+		if (tempPosition.x < 5) {
+			tempPosition.x = -10;
+			direction = 1;
+		} else {
+			tempPosition.x = 10;
+			direction = -1;
 		}
 		return tempPosition;
 	}
