@@ -5,19 +5,20 @@ public class NarwhalReset : MonoBehaviour {
 
 	private GameObject[] wounds;
 
+	public float x;
+	public float y; 
+
 	// Use this for initialization
 	void Start () {
-	
+
 	}
 	
 	public void ClearWounds(){
-		//TODO find all stabhole(Clone) children
 		wounds = GameObject.FindGameObjectsWithTag("Wound");
-		//TODO remove wound sprites from both scene
 		foreach (GameObject wound in wounds) {
 			Destroy (wound);
 		}
-		//TODO end
-		Debug.Log("reset wounds callled");
+		transform.position = new Vector2(x, y);
+		//transform.Rotate (Vector3(0, 0, 0), Space.World);
 	}
 }

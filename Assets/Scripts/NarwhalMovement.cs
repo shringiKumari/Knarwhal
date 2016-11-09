@@ -8,7 +8,7 @@ public class NarwhalMovement : MonoBehaviour {
 	public string move;
 	public string rotate;
 	public string dash;
-	public string spout;
+	//public string spout;
 
 	public float hornAngle;
 	public float thrust;
@@ -65,9 +65,9 @@ public class NarwhalMovement : MonoBehaviour {
     return Input.GetButton(dash) || keyboard.Dash(playerID);
   }
 
-  private bool SpoutInput() {
-    return Input.GetButton(dash) || keyboard.Spout(playerID);
-  }
+  //private bool SpoutInput() {
+  //  return Input.GetButton(dash) || keyboard.Spout(playerID);
+  //}
 
 	 // Update is called once per frame
 	void FixedUpdate () {
@@ -98,8 +98,8 @@ public class NarwhalMovement : MonoBehaviour {
 		}
 		startTimer += Time.fixedDeltaTime;
 
-		if (SpoutInput()) {
-			Debug.Log ("Spout" + spout);
-		}
+		//if (SpoutInput()) {
+		//	Debug.Log ("Spout" + spout);
+		//}
 	}
 }
