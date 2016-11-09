@@ -831,7 +831,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1086138911
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1087,10 +1087,25 @@ Prefab:
       propertyPath: m_Name
       value: PlayerAndy
       objectReference: {fileID: 0}
-    - target: {fileID: 224000014291642382, guid: 481c582da35c44ad69c2279a8d237681,
+    - target: {fileID: 114000014199994682, guid: 481c582da35c44ad69c2279a8d237681,
+        type: 2}
+      propertyPath: m_FontData.m_FontSize
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000012591679236, guid: 481c582da35c44ad69c2279a8d237681,
+        type: 2}
+      propertyPath: m_FontData.m_FontSize
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 224000011174591470, guid: 481c582da35c44ad69c2279a8d237681,
         type: 2}
       propertyPath: m_AnchoredPosition.x
-      value: 20
+      value: 180
+      objectReference: {fileID: 0}
+    - target: {fileID: 224000014291642382, guid: 481c582da35c44ad69c2279a8d237681,
+        type: 2}
+      propertyPath: m_AnchoredPosition.y
+      value: -45
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 481c582da35c44ad69c2279a8d237681, type: 2}
@@ -2060,12 +2075,12 @@ Prefab:
     - target: {fileID: 224000014291642382, guid: 481c582da35c44ad69c2279a8d237681,
         type: 2}
       propertyPath: m_LocalScale.x
-      value: 3
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 224000014291642382, guid: 481c582da35c44ad69c2279a8d237681,
         type: 2}
       propertyPath: m_LocalScale.y
-      value: 3
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 224000014291642382, guid: 481c582da35c44ad69c2279a8d237681,
         type: 2}
@@ -2162,6 +2177,21 @@ Prefab:
     - target: {fileID: 1000010568658084, guid: 481c582da35c44ad69c2279a8d237681, type: 2}
       propertyPath: m_Name
       value: DashThringiIcon
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000014199994682, guid: 481c582da35c44ad69c2279a8d237681,
+        type: 2}
+      propertyPath: m_FontData.m_FontSize
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000012591679236, guid: 481c582da35c44ad69c2279a8d237681,
+        type: 2}
+      propertyPath: m_FontData.m_FontSize
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 224000014291642382, guid: 481c582da35c44ad69c2279a8d237681,
+        type: 2}
+      propertyPath: m_AnchoredPosition.y
+      value: -45
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 481c582da35c44ad69c2279a8d237681, type: 2}

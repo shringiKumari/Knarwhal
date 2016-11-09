@@ -30,7 +30,6 @@ public class NarwhalScoring : MonoBehaviour {
     GameObject thringiscore = GameObject.Find("ScoreUpdateThringi");
     ScoreThringi = thringiscore.GetComponent<Text>();
     narwhalScoring = this;
-    Debug.Log ("sdadas");
   }
 
   public void ScoreHit(GameObject victim){

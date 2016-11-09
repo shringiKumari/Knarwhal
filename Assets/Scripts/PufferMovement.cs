@@ -13,26 +13,28 @@ public class PufferMovement : MonoBehaviour {
 	public float thetaStep = 0.5f;
 	private float translationSpeed = 30.0f;
 	public float pufferAngularVelocity = 20.0f;
-	private float speedMin = 90f;
+	private float speedMin = 45f;
 	private float speedMax = 90f;
 
-	private float pufferSpwanXLeft = -0.01f;
-	private float pufferSpwanXRight = 1.0f;
+	private float pufferSpwanXLeft = -10.0f;
+	private float pufferSpwanXRight = 10.0f;
 
 	private float pufferSpwanYmin = 0.05f;
 	private float pufferSpwanYmax = 0.9f;
 
-	private float scaleMin = 0.8f;
-	private float scaleMax = 1.8f;
+	private float scaleMin = 0.9f;
+	private float scaleMax = 2.0f;
 
-	private float spawnX = 0.5f;
+	private float spawnX = 5f;
 
 	private float redMin = 0.4f;
 	private float redMax = 0.7f;
 	private float greenMin = 0.4f;
 	private float greenMax = 0.8f;
 
-  private bool canHurtEnemy = false;
+	private float optimalDistance = 3.5f;
+
+  	private bool canHurtEnemy = false;
 
 	private float scalePuffer;
 
@@ -68,28 +70,18 @@ public class PufferMovement : MonoBehaviour {
 		Vector2 randomSpawnPosition = new Vector3 (Random.Range (0f, 1f), 
 			Random.Range (pufferSpwanYmin, pufferSpwanYmax),0);
 
-		/*if (randomSpawnPosition.x < spawnX) {
-			randomSpawnPosition.x = pufferSpwanXLeft;
-			direction = 1;
-		} else {
-			randomSpawnPosition.x = pufferSpwanXRight;
-			direction = -1;
-		}*/
-
-		//Debug.Log (randomSpawnPosition.x);
-
 		Vector3 tempPosition = Camera.main.ViewportToWorldPoint(randomSpawnPosition) - 
 			new Vector3 (0, 0, Camera.main.transform.position.z);
 		float distance1 = Vector2.Distance (narwhalAndy.transform.position, tempPosition);
 		float distance2 = Vector2.Distance (narwhalThringi.transform.position, tempPosition);
-		if (distance1 < 3.5f || distance2 < 3.5f) {
+		if (distance1 < optimalDistance || distance2 < optimalDistance) {
 			GetSpawnPositionAndSetDirection ();
 		}
-		if (tempPosition.x < 5) {
-			tempPosition.x = -10;
+		if (tempPosition.x < spawnX) {
+			tempPosition.x = pufferSpwanXLeft;
 			direction = 1;
 		} else {
-			tempPosition.x = 10;
+			tempPosition.x = pufferSpwanXRight;
 			direction = -1;
 		}
 		return tempPosition;
