@@ -8,8 +8,12 @@ public class GameWinScreen : MonoBehaviour {
     public GameObject winscreen;
     public GameObject hud;
 
+	public GameObject AndyReset;
+	public GameObject ThringiReset;
+
 	[SerializeField]
 	public Text winText;
+
 
     // Use this for initialization
     void Start () {
@@ -29,6 +33,13 @@ public class GameWinScreen : MonoBehaviour {
     void ResetScreen() // reactivate HUD and exit win screen
     {
         hud.SetActive(true);
+
+		AndyReset = GameObject.Find ("Andy");
+		ThringiReset = GameObject.Find ("Thringi");
+		var Aclearwounds = ThringiReset.GetComponent<NarwhalReset> ();
+		Aclearwounds.ClearWounds ();
+		var Tclearwounds = AndyReset.GetComponent<NarwhalReset> ();
+		Tclearwounds.ClearWounds ();
 
         winscreen.SetActive(false);
     }

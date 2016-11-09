@@ -8,7 +8,7 @@ public class NarwhalMovement : MonoBehaviour {
 	public string move;
 	public string rotate;
 	public string dash;
-	public string spout;
+	//public string spout;
 
 	public float hornAngle;
 	public float thrust;
@@ -65,9 +65,9 @@ public class NarwhalMovement : MonoBehaviour {
     return Input.GetButton(dash) || keyboard.Dash(playerID);
   }
 
-  private bool SpoutInput() {
-    return Input.GetButton(dash) || keyboard.Spout(playerID);
-  }
+  //private bool SpoutInput() {
+  //  return Input.GetButton(dash) || keyboard.Spout(playerID);
+  //}
 
 	 // Update is called once per frame
 	void FixedUpdate () {
@@ -87,22 +87,19 @@ public class NarwhalMovement : MonoBehaviour {
 
 		//Knarwhal dash on pressing controller button.
 		if (DashInput()) {
-			
-			if (startTimer >= dashCoolDownTimer) {
-				
+			if (startTimer >= dashCoolDownTimer) {				
 				Vector3 ReferenceVector = Quaternion.Euler (0, 0, hornAngle) * transform.right;
 				rb.AddForce (ReferenceVector * thrust, ForceMode2D.Impulse);
 				if (dashStarted != null) {
 					dashStarted.Invoke (dashCoolDownTimer);
 				}
 				startTimer = 0;
-
 			}
 		}
 		startTimer += Time.fixedDeltaTime;
 
-		if (SpoutInput()) {
-			Debug.Log ("Spout" + spout);
-		}
+		//if (SpoutInput()) {
+		//	Debug.Log ("Spout" + spout);
+		//}
 	}
 }

@@ -24,7 +24,7 @@ public class GameEntryScreen : MonoBehaviour {
 		StartCoroutine(Tick());
     }
 
-	IEnumerator Tick() {
+	public IEnumerator Tick() {
 		yield return new WaitForSeconds(0.4f);
 		readySetJoust.gameObject.SetActive (true);
 		yield return new WaitForSeconds(0.8f);
