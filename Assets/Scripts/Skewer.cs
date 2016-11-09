@@ -54,22 +54,24 @@ public class Skewer : MonoBehaviour {
         Debug.Log (parent.name + " jabbed " + enemyParent.name);
         // Find wound location
         var pos = FindEntryWound(enemy, parent);
-        // Activate and configure wound
-        var wound = enemyParent.transform.Find("wound");
-        wound.gameObject.SetActive(true);
-        wound.position = pos;
-        wound.rotation = parent.transform.rotation;
-        // Activate skewer horn sprite
-        var skewer = parent.transform.Find("skewer");
-        skewer.gameObject.SetActive(true);
-        // Spawn a stab hole sprite
-        var stabhole = Instantiate(Resources.Load<GameObject>("stabhole")).transform;
-        stabhole.parent = enemyParent.transform;
-        stabhole.position = pos;
-        stabhole.rotation = parent.transform.rotation;
-        // Register the skewer
-        NarwhalScoring.narwhalScoring.ScoreHit(enemyParent);
-        SetState(State.jabbed);
+        if (enemy.OverlapPoint (pos)) {
+          // Activate and configure wound
+          var wound = enemyParent.transform.Find ("wound");
+          wound.gameObject.SetActive (true);
+          wound.position = pos;
+          wound.rotation = parent.transform.rotation;
+          // Activate skewer horn sprite
+          var skewer = parent.transform.Find ("skewer");
+          skewer.gameObject.SetActive (true);
+          // Spawn a stab hole sprite
+          var stabhole = Instantiate (Resources.Load<GameObject> ("stabhole")).transform;
+          stabhole.parent = enemyParent.transform;
+          stabhole.position = pos;
+          stabhole.rotation = parent.transform.rotation;
+          // Register the skewer
+          NarwhalScoring.narwhalScoring.ScoreHit (enemyParent);
+          SetState (State.jabbed);
+        }
       }
     }
   }
