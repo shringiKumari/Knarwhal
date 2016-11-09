@@ -25,11 +25,16 @@ public class NarwhalScoring : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-    GameObject andyscore = GameObject.Find("ScoreUpdateAndy");
-    ScoreAndy = andyscore.GetComponent<Text>();
-    GameObject thringiscore = GameObject.Find("ScoreUpdateThringi");
-    ScoreThringi = thringiscore.GetComponent<Text>();
-    narwhalScoring = this;
+    
+   GameObject andyscore = GameObject.Find("ScoreUpdateAndy");
+   if (andyscore != null) {
+      ScoreAndy = andyscore.GetComponent<Text> ();
+   }
+   GameObject thringiscore = GameObject.Find("ScoreUpdateThringi");
+   if (thringiscore != null) {
+      ScoreThringi = thringiscore.GetComponent<Text> ();
+   }
+   narwhalScoring = this;
   }
 
   public void ScoreHit(GameObject victim){

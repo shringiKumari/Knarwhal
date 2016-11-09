@@ -11,6 +11,7 @@ TagManager:
   - Pufferfish
   - WinScreen
   - Wound
+  - Score
   layers:
   - Default
   - TransparentFX

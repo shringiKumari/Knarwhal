@@ -28,8 +28,9 @@ public class SceneUIManager : MonoBehaviour {
 	void Start () {
 		coolDownCircle.fillAmount = 0.0f;
           healthBar.fillAmount = 1.0f;
-          reduceBar = healthBar.fillAmount / 8.0f;
-		narwhalScoring = GetComponent<NarwhalScoring> (); 
+          var narwhalScore = GameObject.FindGameObjectWithTag ("Score").GetComponent<NarwhalScoring>();
+          reduceBar = healthBar.fillAmount / (float)narwhalScore.WinScore;
+
 		narwhalMovement = GetComponent<NarwhalMovement> (); 
 		narwhalMovement.dashStarted.AddListener (OnDashStarted);
 	}
