@@ -63,3 +63,6 @@ TagManager:
   - name: BloodiedHorn
     uniqueID: 1536232319
     locked: 0
+  - name: Particles
+    uniqueID: 338304215
+    locked: 0

@@ -3,27 +3,33 @@ using System.Collections;
 
 public class ParticleSpawn : MonoBehaviour {
 
-  public GameObject[] particlePrefabs;
+  private Sprite[] particleSprites;
 
-  private float timeCreated;
-  private float particleInterval = 0.2f;
-  private int particlesCreated = 0;
+  private float particleProbability = 0.3f;
 
   private void SpawnParticle(){
-    var p = Instantiate(particlePrefabs[Random.Range(0, particlePrefabs.Length)]);
-    p.transform.position = transform.position;
+    var p = new GameObject ();
+    Debug.Log ("Layer: " + LayerMask.NameToLayer ("Particles"));
+    p.layer = LayerMask.NameToLayer ("Particles");
+    var sr = p.AddComponent<SpriteRenderer> ();
+    sr.sprite = particleSprites [Random.Range (0, particleSprites.Length)];
+    var t = p.transform;
+    t.position = transform.position;
+    p.AddComponent<Particle> ();
+    //Debug.Log ("Spawn particle!");
   }
 
 	// Use this for initialization
 	void Start () {
-    timeCreated = Time.time;
+    particleSprites = new[]{
+      Resources.Load<Sprite>("blood1"),
+      Resources.Load<Sprite>("blood2")
+    };
 	}
 	
-	// Update is called once per frame
-	void Update () {
-    var particles = Mathf.FloorToInt((Time.time - timeCreated) / particleInterval);
-    while (particlesCreated < particles) {
-
+  void FixedUpdate(){
+    if (Random.Range (0f, 1f) < particleProbability) {
+      SpawnParticle ();
     }
-	}
+  }
 }
