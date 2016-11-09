@@ -346,7 +346,7 @@ MonoBehaviour:
   Thringi: {fileID: 202410981}
   winscreen: {fileID: 1052857529}
   hud: {fileID: 1250178666}
-  WinScore: 3
+  WinScore: 8
 --- !u!4 &599790433
 Transform:
   m_ObjectHideFlags: 0
@@ -1117,20 +1117,6 @@ Prefab:
     - target: {fileID: 1000012749373260, guid: 481c582da35c44ad69c2279a8d237681, type: 2}
       propertyPath: m_Name
       value: PlayerAndy
-      objectReference: {fileID: 0}
-    - target: {fileID: 1000010283357148, guid: 481c582da35c44ad69c2279a8d237681, type: 2}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 114000012591679236, guid: 481c582da35c44ad69c2279a8d237681,
-        type: 2}
-      propertyPath: m_Text
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 114000014199994682, guid: 481c582da35c44ad69c2279a8d237681,
-        type: 2}
-      propertyPath: m_Text
-      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 481c582da35c44ad69c2279a8d237681, type: 2}

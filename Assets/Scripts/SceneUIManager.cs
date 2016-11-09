@@ -35,6 +35,10 @@ public class SceneUIManager : MonoBehaviour {
 		narwhalMovement.dashStarted.AddListener (OnDashStarted);
 	}
 
+     void OnEnable () {
+          healthBar.fillAmount = 1.0f;
+     }
+
 	void OnDashStarted (float dashCoolDownTimer) {
 		dashHasStarted = true;
 		this.dashCoolDownTimer = dashCoolDownTimer;

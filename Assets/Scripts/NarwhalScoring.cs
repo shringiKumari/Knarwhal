@@ -58,12 +58,18 @@ public class NarwhalScoring : MonoBehaviour {
   }
 
   private void GameOver(){
-    AndyScore = 0;
-    ThringiScore = 0;
-    ScoreAndy.text = "0"; // Reset score on HUD
-    ScoreThringi.text = "0"; // Reset score on HUD
-    hud.SetActive(false);
-    winscreen.SetActive (true);
+     AndyScore = 0;
+     ThringiScore = 0;
+     AndyDamage = 0;
+     ThringiDamage = 0;
+     if (ScoreAndy != null) {
+          ScoreAndy.text = "0";
+     }// Reset score on HUD
+     if (ScoreThringi != null) {
+          ScoreThringi.text = "0"; 
+     }// Reset score on HUD
+     hud.SetActive(false);
+     winscreen.SetActive (true);
   }
 
   private void WinCheck() {

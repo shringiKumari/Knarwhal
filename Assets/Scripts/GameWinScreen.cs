@@ -4,9 +4,9 @@ using System.Collections;
 
 public class GameWinScreen : MonoBehaviour {
 
-	private NarwhalScoring narwhalScoring;
-    public GameObject winscreen;
-    public GameObject hud;
+     private NarwhalScoring narwhalScoring;
+     public GameObject winscreen;
+     public GameObject hud;
 
 	public GameObject AndyReset;
 	public GameObject ThringiReset;
@@ -33,7 +33,6 @@ public class GameWinScreen : MonoBehaviour {
     void ResetScreen() // reactivate HUD and exit win screen
     {
         hud.SetActive(true);
-
 		AndyReset = GameObject.Find ("Andy");
 		ThringiReset = GameObject.Find ("Thringi");
 		var Aclearwounds = ThringiReset.GetComponent<NarwhalReset> ();
