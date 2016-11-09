@@ -25,7 +25,7 @@ GameObject:
   - 58: {fileID: 58000010999745336}
   m_Layer: 13
   m_Name: Pufferfish
-  m_TagString: Untagged
+  m_TagString: Pufferfish
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

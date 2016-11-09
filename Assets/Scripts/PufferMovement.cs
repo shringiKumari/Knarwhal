@@ -44,9 +44,8 @@ public class PufferMovement : MonoBehaviour {
 
 	void OnEnable () {
 		
-		narwhalAndy = GameObject.FindGameObjectWithTag ("AndyBody").transform.parent.gameObject;
-		narwhalThringi = GameObject.FindGameObjectWithTag ("ThringiBody").transform.parent.gameObject;
-		//random color
+		narwhalAndy = GameObject.Find ("Andy");
+		narwhalThringi = GameObject.Find("Thringi");
 		gameObject.GetComponent<SpriteRenderer>().material.color = 
 			Color.black + new Color(Random.Range(redMin, redMax), Random.Range(greenMin, greenMax), 1f); 
 

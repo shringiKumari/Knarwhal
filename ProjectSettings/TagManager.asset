@@ -9,6 +9,8 @@ TagManager:
   - ReadySetJoust
   - GameEntryScreen
   - Pufferfish
+  - WinScreen
+  - Wound
   layers:
   - Default
   - TransparentFX
@@ -46,8 +48,17 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Horn
+    uniqueID: 613306835
+    locked: 0
+  - name: Body
+    uniqueID: 3500190491
+    locked: 0
   - name: Mask
     uniqueID: 425126519
+    locked: 0
+  - name: StabWound
+    uniqueID: 2014211157
     locked: 0
   - name: BloodiedHorn
     uniqueID: 1536232319

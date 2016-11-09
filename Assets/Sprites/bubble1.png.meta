@@ -1,11 +1,9 @@
 fileFormatVersion: 2
-guid: 68259f19bbd6d024288e108802dedf29
-timeCreated: 1478620835
+guid: 2c0673305450c4f6c884d77250bfca8d
+timeCreated: 1478610833
 licenseType: Free
 TextureImporter:
-  fileIDToRecycleName:
-    21300000: thringi
-    21300002: thringi_horn
+  fileIDToRecycleName: {}
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -32,7 +30,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     filterMode: -1
-    aniso: 16
+    aniso: -1
     mipBias: -1
     wrapMode: 1
   nPOTScale: 0
@@ -40,7 +38,7 @@ TextureImporter:
   rGBM: 0
   compressionQuality: 50
   allowsAlphaSplitting: 0
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -53,33 +51,7 @@ TextureImporter:
   buildTargetSettings: []
   spriteSheet:
     serializedVersion: 2
-    sprites:
-    - serializedVersion: 2
-      name: thringi
-      rect:
-        serializedVersion: 2
-        x: 1
-        y: 0
-        width: 295
-        height: 236
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: thringi_horn
-      rect:
-        serializedVersion: 2
-        x: 295
-        y: 0
-        width: 120
-        height: 236
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
+    sprites: []
     outline: []
   spritePackingTag: 
   userData: 
