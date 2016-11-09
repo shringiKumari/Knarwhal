@@ -101,6 +101,7 @@ GameObject:
   - 222: {fileID: 150154951}
   - 114: {fileID: 150154950}
   - 114: {fileID: 150154949}
+  - 114: {fileID: 150154952}
   m_Layer: 5
   m_Name: PlayBtn
   m_TagString: Untagged
@@ -176,7 +177,7 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
-        m_CallState: 2
+        m_CallState: 0
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &150154950
@@ -212,6 +213,17 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 150154947}
+--- !u!114 &150154952
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 150154947}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aefb0bcb7a0ee498bb514e6c3cce38de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &202410981 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 1000014088132396, guid: 7f6e781fc7ec95a4aac2ca22dcf739ac,
@@ -1797,6 +1809,7 @@ GameObject:
   - 222: {fileID: 1973360824}
   - 114: {fileID: 1973360823}
   - 114: {fileID: 1973360822}
+  - 114: {fileID: 1973360825}
   m_Layer: 5
   m_Name: QuitBtn
   m_TagString: Untagged
@@ -1872,7 +1885,7 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
-        m_CallState: 2
+        m_CallState: 0
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1973360823
@@ -1908,6 +1921,17 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1973360820}
+--- !u!114 &1973360825
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1973360820}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aefb0bcb7a0ee498bb514e6c3cce38de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &2019444074
 Prefab:
   m_ObjectHideFlags: 0
