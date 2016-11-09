@@ -7,7 +7,13 @@ public class Skewer : MonoBehaviour {
 
   private State state = State.hunting;
 
+  private GameObject parent;
+  private GameObject skewer;
+  private Collider2D hornCollider;
+
   private GameObject enemyParent;
+  private GameObject enemyWound;
+  private Collider2D enemyWoundBetween;
 
   private enum State {
     hunting, jabbed, skewered, cooldown
@@ -18,7 +24,7 @@ public class Skewer : MonoBehaviour {
     lastChangeTime = Time.time;
   }
 
-  Vector3 FindEntryWound(Collider2D c, GameObject parent) {
+  Vector3 FindEntryWound(Collider2D c) {
     var pos = parent.transform.TransformPoint(new Vector3(1.8f, -0.4f));
     var dir = pos - parent.transform.TransformPoint(new Vector3(2.8f, -0.4f));
     dir *= 0.1f;
@@ -39,30 +45,26 @@ public class Skewer : MonoBehaviour {
   void OnTriggerEnter2D(Collider2D enemy) {
     
     if (state == State.jabbed && enemy.name == "VitalConfirm") {
-      var parent = transform.parent.gameObject;
       var newEnemyParent = enemy.gameObject.transform.parent.parent.gameObject;
       if (newEnemyParent == enemyParent) {
-        Debug.Log (parent.name + " skewered " + enemyParent.name);
         SetState (State.skewered);
       }
     }
 
     if (state == State.hunting && enemy.name == "VitalCollision") {
-      var parent = transform.parent.gameObject;
       enemyParent = enemy.gameObject.transform.parent.gameObject;
       if (parent != enemyParent) {
-        Debug.Log (parent.name + " jabbed " + enemyParent.name);
         // Find wound location
-        var pos = FindEntryWound(enemy, parent);
+        var pos = FindEntryWound(enemy);
         if (enemy.OverlapPoint (pos)) {
           // Activate and configure wound
-          var wound = enemyParent.transform.Find ("wound");
-          wound.gameObject.SetActive (true);
-          wound.position = pos;
-          wound.rotation = parent.transform.rotation;
-          // Activate skewer horn sprite
-          var skewer = parent.transform.Find ("skewer");
-          skewer.gameObject.SetActive (true);
+          enemyWound = enemyParent.transform.Find ("wound").gameObject;
+          enemyWound.gameObject.SetActive (true);
+          enemyWound.transform.position = pos;
+          enemyWound.transform.rotation = parent.transform.rotation;
+          // Check whether to activate skewer horn sprite
+          enemyWoundBetween = enemyWound.transform.Find ("wbetween").GetComponent<Collider2D>();
+          UpdateSkewer ();
           // Spawn a stab hole sprite
           var stabhole = Instantiate (Resources.Load<GameObject> ("stabhole")).transform;
           stabhole.parent = enemyParent.transform;
@@ -84,18 +86,24 @@ public class Skewer : MonoBehaviour {
     skewer.gameObject.SetActive (false);
   }
 
+  void UpdateSkewer(){
+    skewer.gameObject.SetActive (hornCollider.IsTouching (enemyWoundBetween));
+  }
+
   // Update is called once per frame
   void Update () {
     if (state == State.hunting) {
       // Stay in this state indefinitely
     }
     else if (state == State.jabbed) {
+      UpdateSkewer ();
       if (lastChangeTime + 1 < Time.time) {
         DisableWoundAndSkewer ();
         SetState (State.hunting);
       }
     }
     else if (state == State.skewered) {
+      UpdateSkewer ();
       if (lastChangeTime + 6 < Time.time) {
         DisableWoundAndSkewer ();
         SetState (State.cooldown);
@@ -110,6 +118,8 @@ public class Skewer : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-	
+    parent = transform.parent.gameObject;
+    skewer = parent.transform.Find ("skewer").gameObject;
+    hornCollider = parent.transform.Find ("HornCollision").GetComponent<Collider2D>();
 	}
 }
