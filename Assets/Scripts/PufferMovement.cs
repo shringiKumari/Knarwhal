@@ -13,7 +13,7 @@ public class PufferMovement : MonoBehaviour {
 	public float thetaStep = 0.5f;
 	private float translationSpeed = 30.0f;
 	public float pufferAngularVelocity = 20.0f;
-	private float speedMin = 90f;
+	private float speedMin = 45f;
 	private float speedMax = 90f;
 
      public float pufferSpwanXLeft;
@@ -30,7 +30,7 @@ public class PufferMovement : MonoBehaviour {
 	private float greenMin = 0.4f;
 	private float greenMax = 0.8f;
 
-	private float optimalDistance = 3.5f;//not fine
+	private float optimalDistance;
 
   	private bool canHurtEnemy = false;
 
@@ -41,32 +41,32 @@ public class PufferMovement : MonoBehaviour {
 
 
      void Awake () {
+          narwhalAndy = GameObject.Find ("Andy");
+          narwhalThringi = GameObject.Find("Thringi");
           rb = gameObject.GetComponent<Rigidbody2D> ();
           var vertExtent = Camera.main.orthographicSize;    
           var horzExtent = vertExtent * Screen.width / Screen.height;
           pufferSpwanXLeft = 0f - horzExtent - (GetComponent<SpriteRenderer> ().bounds.extents.x * 2);
           pufferSpwanXRight = horzExtent + (GetComponent<SpriteRenderer> ().bounds.extents.x * 2);
-          
+          optimalDistance = (GetComponent<SpriteRenderer> ().bounds.extents.x * 2)
+          + (narwhalAndy.GetComponent<SpriteInformation> ().GetBodyBounds ().extents.x * 2); 
      }
 
 	void OnEnable () {
-		
-		narwhalAndy = GameObject.Find ("Andy");
-		narwhalThringi = GameObject.Find("Thringi");
-		gameObject.GetComponent<SpriteRenderer>().material.color = 
-			Color.black + new Color(Random.Range(redMin, redMax), Random.Range(greenMin, greenMax), 1f); 
+          gameObject.GetComponent<SpriteRenderer>().material.color = 
+          Color.black + new Color(Random.Range(redMin, redMax), Random.Range(greenMin, greenMax), 1f); 
 
-		//random scale
-		scalePuffer = Random.Range (scaleMin, scaleMax);
-		transform.localScale = transform.localScale * scalePuffer;
+          //random scale
+          scalePuffer = Random.Range (scaleMin, scaleMax);
+          transform.localScale = transform.localScale * scalePuffer;
 
-		//random speed 
-		translationSpeed = Random.Range (speedMin, speedMax);
+          //random speed 
+          translationSpeed = Random.Range (speedMin, speedMax);
 
-		//set random position
-		transform.position = GetSpawnPositionAndSetDirection ();
+          //set random position
+          transform.position = GetSpawnPositionAndSetDirection ();
 
-    canHurtEnemy = true;
+          canHurtEnemy = true;
 	}
 
 	Vector3 GetSpawnPositionAndSetDirection(){

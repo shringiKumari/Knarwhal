@@ -6,7 +6,7 @@ public class PufferfishSpawner : MonoBehaviour {
 	[SerializeField]
 	private GameObject pufferfish;
 	private float startTimer = 0f;
-	private float spawnThreshholdTimer = 5f;
+	private float spawnThreshholdTimer = 2f;
 
 	private float screenLimitMax = 15f;
 	private float screenLimitMin = -15f;
@@ -15,7 +15,6 @@ public class PufferfishSpawner : MonoBehaviour {
 	void Start () {
           screenLimitMin = pufferfish.GetComponent<PufferMovement>().pufferSpwanXLeft;
           screenLimitMax = pufferfish.GetComponent<PufferMovement>().pufferSpwanXRight;
-          Debug.Log(screenLimitMax + " max min " +screenLimitMin);
 		}
 	
 	// Update is called once per frame

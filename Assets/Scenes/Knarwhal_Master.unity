@@ -308,7 +308,8 @@ Prefab:
       propertyPath: healthBar
       value: 
       objectReference: {fileID: 1691696917}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 0}
   m_ParentPrefab: {fileID: 100100000, guid: 7f6e781fc7ec95a4aac2ca22dcf739ac, type: 2}
   m_IsPrefabParent: 0
 --- !u!1 &599790431
@@ -966,7 +967,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1086138911
 MonoBehaviour:
   m_ObjectHideFlags: 0
