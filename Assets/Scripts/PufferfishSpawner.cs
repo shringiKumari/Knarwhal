@@ -8,8 +8,8 @@ public class PufferfishSpawner : MonoBehaviour {
 	private float startTimer = 0f;
 	private float spawnThreshholdTimer = 5f;
 
-	private float screenLimitMax = 10f;
-	private float screenLimitMin = -10f;
+	private float screenLimitMax = 15f;
+	private float screenLimitMin = -15f;
 
 	// Use this for initialization
 	void Start () {
