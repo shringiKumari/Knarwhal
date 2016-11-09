@@ -18,6 +18,24 @@ public class Skewer : MonoBehaviour {
     lastChangeTime = Time.time;
   }
 
+  Vector3 FindEntryWound(Collider2D c, GameObject parent) {
+    var pos = parent.transform.TransformPoint(new Vector3(1.8f, -0.4f));
+    var dir = pos - parent.transform.TransformPoint(new Vector3(2.8f, -0.4f));
+    dir *= 0.1f;
+    int steps = 0;
+    while (steps <= 10 && !c.OverlapPoint(pos)) {
+      pos += dir;
+      steps++;
+    }
+    var lastPos = pos;
+    while (steps <= 10 && c.OverlapPoint(pos)) {
+      lastPos = pos;
+      pos += dir;
+      steps++;
+    }
+    return lastPos;
+  }
+
   void OnTriggerEnter2D(Collider2D enemy) {
     
     if (state == State.jabbed && enemy.name == "VitalConfirm") {
@@ -34,19 +52,21 @@ public class Skewer : MonoBehaviour {
       enemyParent = enemy.gameObject.transform.parent.gameObject;
       if (parent != enemyParent) {
         Debug.Log (parent.name + " jabbed " + enemyParent.name);
+        // Find wound location
+        var pos = FindEntryWound(enemy, parent);
         // Activate and configure wound
-        var wound = enemyParent.transform.Find ("wound");
-        wound.gameObject.SetActive (true);
-        wound.position = parent.transform.TransformPoint (new Vector3 (1.8f, -0.4f));
+        var wound = enemyParent.transform.Find("wound");
+        wound.gameObject.SetActive(true);
+        wound.position = pos;
         wound.rotation = parent.transform.rotation;
         // Activate skewer horn sprite
-        var skewer = parent.transform.Find ("skewer");
-        skewer.gameObject.SetActive (true);
-        SetState (State.jabbed);
+        var skewer = parent.transform.Find("skewer");
+        skewer.gameObject.SetActive(true);
+        SetState(State.jabbed);
         // Spawn a stab hole sprite
         var stabhole = Instantiate(Resources.Load<GameObject>("stabhole")).transform;
         stabhole.parent = enemyParent.transform;
-        stabhole.position = parent.transform.TransformPoint (new Vector3 (1.8f, -0.4f));
+        stabhole.position = pos;
         stabhole.rotation = parent.transform.rotation;
       }
     }

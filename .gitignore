@@ -4,4 +4,5 @@
 Library/
 Temp/
 *.userprefs
+.vs
 obj/
