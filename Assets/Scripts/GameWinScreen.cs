@@ -8,9 +8,6 @@ public class GameWinScreen : MonoBehaviour {
     public GameObject winscreen;
     public GameObject hud;
 
-    [SerializeField]
-    private Text scoreText;
-
     // Use this for initialization
     void Start () {
 

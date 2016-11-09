@@ -62,12 +62,14 @@ public class Skewer : MonoBehaviour {
         // Activate skewer horn sprite
         var skewer = parent.transform.Find("skewer");
         skewer.gameObject.SetActive(true);
-        SetState(State.jabbed);
         // Spawn a stab hole sprite
         var stabhole = Instantiate(Resources.Load<GameObject>("stabhole")).transform;
         stabhole.parent = enemyParent.transform;
         stabhole.position = pos;
         stabhole.rotation = parent.transform.rotation;
+        // Register the skewer
+        NarwhalScoring.narwhalScoring.ScoreHit(enemyParent);
+        SetState(State.jabbed);
       }
     }
   }

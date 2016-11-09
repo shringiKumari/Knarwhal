@@ -25,7 +25,6 @@ public class SceneUIManager : MonoBehaviour {
 		narwhalScoring = GetComponent<NarwhalScoring> (); 
 		narwhalMovement = GetComponent<NarwhalMovement> (); 
 		narwhalMovement.dashStarted.AddListener (OnDashStarted);
-		narwhalScoring.updateScore.AddListener (ScoreUpdate);
 	}
 
 	void OnDashStarted (float dashCoolDownTimer) {
@@ -34,8 +33,7 @@ public class SceneUIManager : MonoBehaviour {
 
 	}
 
-	void ScoreUpdate (int score) {
-		//this.score = score;
+	public void ScoreUpdate (int score) {
 		scoreText.text = score.ToString();
 	}
 

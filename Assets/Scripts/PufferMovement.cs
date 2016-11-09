@@ -32,6 +32,8 @@ public class PufferMovement : MonoBehaviour {
 	private float greenMin = 0.4f;
 	private float greenMax = 0.8f;
 
+  private bool canHurtEnemy = false;
+
 	private float scalePuffer;
 
 	private GameObject narwhalAndy;
@@ -58,6 +60,8 @@ public class PufferMovement : MonoBehaviour {
 
 		//set random position
 		transform.position = GetSpawnPositionAndSetDirection ();
+
+    canHurtEnemy = true;
 	}
 
 	Vector3 GetSpawnPositionAndSetDirection(){
@@ -90,25 +94,35 @@ public class PufferMovement : MonoBehaviour {
 		}
 		return tempPosition;
 	}
-			
+	
+  void RegisterHit(Collider2D bodyhit){
+    var narwhal = bodyhit.gameObject.transform.parent.gameObject;
+    NarwhalScoring.narwhalScoring.ScoreHit(narwhal);
+    canHurtEnemy = false;
+  }
+
 	IEnumerator OnTriggerEnter2D(Collider2D bodyhit)
 	{
-		if (gameObject.activeSelf == true) {
-			if (bodyhit.tag == "AndyBody") {
-				while (transform.localScale.x > float.MinValue) {
-					yield return new WaitForSeconds (0.01f);
-					transform.localScale = Vector3.Lerp (transform.localScale, Vector3.zero, 0.1f);
-				}
-				gameObject.SetActive (false);
-			}
-			if (bodyhit.tag == "ThringiBody") {	
-				while (transform.localScale.x > float.MinValue) {
-					yield return new WaitForSeconds (0.01f);
-					transform.localScale = Vector3.Lerp (transform.localScale, Vector3.zero, 0.1f);
-				}
-				gameObject.SetActive (false);
-			}
-		}
+    if (canHurtEnemy) {
+      if (gameObject.activeSelf == true) {
+        if (bodyhit.tag == "AndyBody") {
+          RegisterHit (bodyhit);
+          while (transform.localScale.x > float.MinValue) {
+            yield return new WaitForSeconds (0.01f);
+            transform.localScale = Vector3.Lerp (transform.localScale, Vector3.zero, 0.1f);
+          }
+          gameObject.SetActive (false);
+        }
+        if (bodyhit.tag == "ThringiBody") {
+          RegisterHit (bodyhit);
+          while (transform.localScale.x > float.MinValue) {
+            yield return new WaitForSeconds (0.01f);
+            transform.localScale = Vector3.Lerp (transform.localScale, Vector3.zero, 0.1f);
+          }
+          gameObject.SetActive (false);
+        }
+      }
+    }
 	}
 
 	void FixedUpdate () {

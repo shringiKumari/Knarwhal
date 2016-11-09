@@ -262,11 +262,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 114000010551003026, guid: 7f6e781fc7ec95a4aac2ca22dcf739ac,
-        type: 2}
-      propertyPath: winscreen
-      value: 
-      objectReference: {fileID: 1052857529}
     - target: {fileID: 114000010363717676, guid: 7f6e781fc7ec95a4aac2ca22dcf739ac,
         type: 2}
       propertyPath: coolDownCircle
@@ -281,52 +276,56 @@ Prefab:
       propertyPath: m_Name
       value: Andy
       objectReference: {fileID: 0}
-    - target: {fileID: 114000013492093692, guid: 7f6e781fc7ec95a4aac2ca22dcf739ac,
-        type: 2}
-      propertyPath: move
-      value: A
-      objectReference: {fileID: 0}
-    - target: {fileID: 114000013492093692, guid: 7f6e781fc7ec95a4aac2ca22dcf739ac,
-        type: 2}
-      propertyPath: rotate
-      value: LeftJoystickX
-      objectReference: {fileID: 0}
-    - target: {fileID: 114000013492093692, guid: 7f6e781fc7ec95a4aac2ca22dcf739ac,
-        type: 2}
-      propertyPath: dash
-      value: X
-      objectReference: {fileID: 0}
-    - target: {fileID: 114000013492093692, guid: 7f6e781fc7ec95a4aac2ca22dcf739ac,
-        type: 2}
-      propertyPath: spout
-      value: RB
-      objectReference: {fileID: 0}
-    - target: {fileID: 114000012542377238, guid: 7f6e781fc7ec95a4aac2ca22dcf739ac,
-        type: 2}
-      propertyPath: winscreen
-      value: 
-      objectReference: {fileID: 1052857529}
-    - target: {fileID: 114000012542377238, guid: 7f6e781fc7ec95a4aac2ca22dcf739ac,
-        type: 2}
-      propertyPath: scoreText
-      value: 
-      objectReference: {fileID: 766337651}
-    - target: {fileID: 114000010551003026, guid: 7f6e781fc7ec95a4aac2ca22dcf739ac,
-        type: 2}
-      propertyPath: hud
-      value: 
-      objectReference: {fileID: 1250178666}
-    - target: {fileID: 1000014088132396, guid: 7f6e781fc7ec95a4aac2ca22dcf739ac, type: 2}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1000013780901616, guid: 7f6e781fc7ec95a4aac2ca22dcf739ac, type: 2}
-      propertyPath: m_TagString
-      value: AndyBody
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7f6e781fc7ec95a4aac2ca22dcf739ac, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &599790431
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 599790433}
+  - 114: {fileID: 599790432}
+  m_Layer: 0
+  m_Name: Scoring
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &599790432
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 599790431}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4aaf13c0a24454c23979491fd5f8aef4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AndyScore: 0
+  ThringiScore: 0
+  Andy: {fileID: 1275785518}
+  Thringi: {fileID: 202410981}
+  winscreen: {fileID: 1052857529}
+  WinScore: 5
+  hud: {fileID: 1250178666}
+--- !u!4 &599790433
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 599790431}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: -10}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 10
 --- !u!1 &621677545
 GameObject:
   m_ObjectHideFlags: 0
@@ -1321,15 +1320,13 @@ Prefab:
       objectReference: {fileID: 1834107709}
     - target: {fileID: 1000012498314650, guid: 7f6e781fc7ec95a4aac2ca22dcf739ac, type: 2}
       propertyPath: m_TagString
-      value: ThringiBody
+      value: Untagged
       objectReference: {fileID: 0}
-    - target: {fileID: 114000010551003026, guid: 7f6e781fc7ec95a4aac2ca22dcf739ac,
-        type: 2}
+    - target: {fileID: 0}
       propertyPath: WinScore
       value: 5
       objectReference: {fileID: 0}
-    - target: {fileID: 114000010551003026, guid: 7f6e781fc7ec95a4aac2ca22dcf739ac,
-        type: 2}
+    - target: {fileID: 0}
       propertyPath: winscreen
       value: 
       objectReference: {fileID: 1052857529}
@@ -1345,19 +1342,16 @@ Prefab:
       value: 
       objectReference: {fileID: 21300002, guid: 68259f19bbd6d024288e108802dedf29,
         type: 3}
-    - target: {fileID: 114000012542377238, guid: 7f6e781fc7ec95a4aac2ca22dcf739ac,
-        type: 2}
+    - target: {fileID: 0}
       propertyPath: winscreen
       value: 
       objectReference: {fileID: 1000010782523196, guid: 6e0e06ddc270dc947b6065d53ac597aa,
         type: 2}
-    - target: {fileID: 114000012542377238, guid: 7f6e781fc7ec95a4aac2ca22dcf739ac,
-        type: 2}
+    - target: {fileID: 0}
       propertyPath: scoreText
       value: 
       objectReference: {fileID: 1834107709}
-    - target: {fileID: 114000010551003026, guid: 7f6e781fc7ec95a4aac2ca22dcf739ac,
-        type: 2}
+    - target: {fileID: 0}
       propertyPath: hud
       value: 
       objectReference: {fileID: 1250178666}
@@ -1365,7 +1359,17 @@ Prefab:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 0}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 0}
+    - {fileID: 0}
   m_ParentPrefab: {fileID: 100100000, guid: 7f6e781fc7ec95a4aac2ca22dcf739ac, type: 2}
   m_IsPrefabParent: 0
 --- !u!1 &1250178666
