@@ -13,7 +13,9 @@ public class PufferfishSpawner : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		
+          screenLimitMin = pufferfish.GetComponent<PufferMovement>().pufferSpwanXLeft;
+          screenLimitMax = pufferfish.GetComponent<PufferMovement>().pufferSpwanXRight;
+          Debug.Log(screenLimitMax + " max min " +screenLimitMin);
 		}
 	
 	// Update is called once per frame
