@@ -4,24 +4,21 @@ using System.Collections;
 
 public class NarwhalScoring : MonoBehaviour {
 
-	public int AndyScore;
-	public int ThringiScore;
+  public int AndyScore;
+  public int ThringiScore;
 	
   public static NarwhalScoring narwhalScoring;
 
   public GameObject Andy;
   public GameObject Thringi;
   public GameObject winscreen;
-
-  private bool ScoreReady = true;
-	public int WinScore;
-	private string winner;
   public GameObject hud;
+
+  public int WinScore;
   private Text ScoreAndy;
   private Text ScoreThringi;
+  private string WinText;
 
-
-  public ScoreUpdateEvent updateScore = new ScoreUpdateEvent();
 
 	// Use this for initialization
 	void Start () {
@@ -37,13 +34,11 @@ public class NarwhalScoring : MonoBehaviour {
       ThringiScore += 1;
       var ui = Thringi.GetComponent<SceneUIManager> ();
       ui.ScoreUpdate (ThringiScore);
-      //updateScore.Invoke (ThringiScore); //Trigger for UI
     }
     if (victim.name == "Thringi") { // Add point for Andy when Thringi is hit
       AndyScore += 1;
       var ui = Andy.GetComponent<SceneUIManager> ();
       ui.ScoreUpdate (AndyScore);
-      //updateScore.Invoke (AndyScore); //Trigger for UI
     }
     WinCheck(); //check winstate
   }
@@ -60,13 +55,17 @@ public class NarwhalScoring : MonoBehaviour {
   private void WinCheck() {
     if (AndyScore == WinScore) {
       GameOver ();
-      winner = "Andy";
+			WinText = "Player One wins! Best Knarwhal!";
     }
 
     if(ThringiScore == WinScore) {
       GameOver ();
-      winner = "Thringi";
-		}
+			WinText = "Player Two wins! Best Knarwhal!";
+	}
+
+		var wintext = winscreen.GetComponent<GameWinScreen> ();
+		wintext.WinnerUpdate (WinText);
+
 	}
 
 }

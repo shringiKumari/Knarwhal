@@ -8,10 +8,18 @@ public class GameWinScreen : MonoBehaviour {
     public GameObject winscreen;
     public GameObject hud;
 
+	[SerializeField]
+	public Text winText;
+
     // Use this for initialization
     void Start () {
 
     }
+
+	public void WinnerUpdate(string winner)
+	{
+		winText.text = winner;
+	}
 
 	public void PlayClick()
     { 
