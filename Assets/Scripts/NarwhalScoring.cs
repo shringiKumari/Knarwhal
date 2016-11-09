@@ -6,6 +6,9 @@ public class NarwhalScoring : MonoBehaviour {
 
   public int AndyScore;
   public int ThringiScore;
+
+  public int AndyDamage;
+  public int ThringiDamage;
 	
   public static NarwhalScoring narwhalScoring;
 
@@ -32,14 +35,20 @@ public class NarwhalScoring : MonoBehaviour {
   public void ScoreHit(GameObject victim){
     if (victim.name == "Andy") { // Add point for Thringi when Andy is hit
       ThringiScore += 1;
+	   AndyDamage += 1;
       var ui = Thringi.GetComponent<SceneUIManager> ();
       ui.ScoreUpdate (ThringiScore);
+		var healthUI = Andy.GetComponent<SceneUIManager> ();
+      healthUI.HealthBarUpdate (AndyDamage);
     }
     if (victim.name == "Thringi") { // Add point for Andy when Thringi is hit
       AndyScore += 1;
+	  ThringiDamage += 1;
       var ui = Andy.GetComponent<SceneUIManager> ();
       ui.ScoreUpdate (AndyScore);
-    }
+      var healthUI = Thringi.GetComponent<SceneUIManager> ();
+      healthUI.HealthBarUpdate (ThringiDamage);
+      }
     WinCheck(); //check winstate
   }
 
