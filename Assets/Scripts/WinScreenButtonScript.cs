@@ -20,7 +20,9 @@ public class WinScreenButtonScript : MonoBehaviour {
 			(Input.GetButtonDown("Start_W"))){
 			gameWinScreen.PlayClick ();
 		}
-		if (Input.GetKeyDown(KeyCode.B)) {
+          if ((Input.GetKeyDown(KeyCode.B))||
+               (Input.GetButtonDown("Quit"))||
+               (Input.GetButtonDown("Quit_W"))){
 			gameWinScreen.QuitClick ();
 		}
 	
