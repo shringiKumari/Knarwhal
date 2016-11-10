@@ -234,6 +234,7 @@ GameObject:
   - 50: {fileID: 50000012511789236}
   - 114: {fileID: 114000010363717676}
   - 114: {fileID: 114000011837539718}
+  - 114: {fileID: 114000012082156172}
   m_Layer: 0
   m_Name: Whale
   m_TagString: Untagged
@@ -630,6 +631,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   coolDownCircle: {fileID: 0}
+  healthBar: {fileID: 0}
   scoreText: {fileID: 0}
 --- !u!114 &114000011837539718
 MonoBehaviour:
@@ -642,6 +644,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c8e232e4f27a746bfb57aa1831b9f25f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  x: 0
+  y: 0
+--- !u!114 &114000012082156172
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000014088132396}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b84fb444563049c0bb41e8481ac640b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spriteBody: {fileID: 212000012326727788}
 --- !u!114 &114000013492093692
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -658,7 +674,6 @@ MonoBehaviour:
   move: A
   rotate: LeftJoystickX
   dash: X
-  spout: RB
   hornAngle: 0
   thrust: 1.5
   movementThrust: 0.4
