@@ -669,7 +669,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e5c4324a622e14d45a6b2c765576264e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rotationSpeed: 500
+  rotationSpeed: 600
   translationSpeed: 400
   move: A
   rotate: LeftJoystickX

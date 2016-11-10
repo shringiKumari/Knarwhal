@@ -75,7 +75,7 @@ public class NarwhalMovement : MonoBehaviour {
 
 
 		//Knarwhal rotation using the joystick input.
-    	rb.angularVelocity = RotateInput() * rotationSpeed;
+    	rb.angularVelocity = RotateInput() * rotationSpeed * -1.0f;
 
 		//Knarwhal move on pressing controller button.
 		if (MoveInput()) {

@@ -1653,31 +1653,6 @@ Prefab:
       propertyPath: m_LocalScale.x
       value: -1
       objectReference: {fileID: 0}
-    - target: {fileID: 114000013492093692, guid: 7f6e781fc7ec95a4aac2ca22dcf739ac,
-        type: 2}
-      propertyPath: rotate
-      value: LeftJoystickX_2
-      objectReference: {fileID: 0}
-    - target: {fileID: 114000013492093692, guid: 7f6e781fc7ec95a4aac2ca22dcf739ac,
-        type: 2}
-      propertyPath: move
-      value: A_2
-      objectReference: {fileID: 0}
-    - target: {fileID: 114000013492093692, guid: 7f6e781fc7ec95a4aac2ca22dcf739ac,
-        type: 2}
-      propertyPath: dash
-      value: X_2
-      objectReference: {fileID: 0}
-    - target: {fileID: 114000013492093692, guid: 7f6e781fc7ec95a4aac2ca22dcf739ac,
-        type: 2}
-      propertyPath: spout
-      value: RB_2
-      objectReference: {fileID: 0}
-    - target: {fileID: 114000013492093692, guid: 7f6e781fc7ec95a4aac2ca22dcf739ac,
-        type: 2}
-      propertyPath: hornAngle
-      value: 180
-      objectReference: {fileID: 0}
     - target: {fileID: 1000013780901616, guid: 7f6e781fc7ec95a4aac2ca22dcf739ac, type: 2}
       propertyPath: m_TagString
       value: ThringiBody
@@ -1713,16 +1688,6 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: m_Points.m_Paths.Array.data[0].Array.data[3].y
       value: 0.059790015
-      objectReference: {fileID: 0}
-    - target: {fileID: 114000013492093692, guid: 7f6e781fc7ec95a4aac2ca22dcf739ac,
-        type: 2}
-      propertyPath: thrust
-      value: 1.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 114000013492093692, guid: 7f6e781fc7ec95a4aac2ca22dcf739ac,
-        type: 2}
-      propertyPath: movementThrust
-      value: 0.4
       objectReference: {fileID: 0}
     - target: {fileID: 50000012511789236, guid: 7f6e781fc7ec95a4aac2ca22dcf739ac,
         type: 2}
@@ -1822,6 +1787,26 @@ Prefab:
       propertyPath: healthBar
       value: 
       objectReference: {fileID: 2055315987}
+    - target: {fileID: 114000013492093692, guid: 7f6e781fc7ec95a4aac2ca22dcf739ac,
+        type: 2}
+      propertyPath: move
+      value: A_2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000013492093692, guid: 7f6e781fc7ec95a4aac2ca22dcf739ac,
+        type: 2}
+      propertyPath: rotate
+      value: LeftJoystickX_2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000013492093692, guid: 7f6e781fc7ec95a4aac2ca22dcf739ac,
+        type: 2}
+      propertyPath: dash
+      value: X_2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000013492093692, guid: 7f6e781fc7ec95a4aac2ca22dcf739ac,
+        type: 2}
+      propertyPath: hornAngle
+      value: 180
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 0}
     - {fileID: 0}
