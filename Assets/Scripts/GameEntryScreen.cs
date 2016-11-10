@@ -23,7 +23,7 @@ public class GameEntryScreen : MonoBehaviour {
 
 	public void OnClick (){
 		button.gameObject.SetActive(false);
-		controlinfo.SetActive (false);
+		controlinfo.SetActive(false);
 		StartCoroutine(Tick());
     }
 
