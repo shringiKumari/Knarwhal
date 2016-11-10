@@ -388,7 +388,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 446e005dbeb0d4e77ab13a1c2ba67042, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pufferfish: {fileID: 711761950}
+  pufferfishReference: {fileID: 711761950}
 --- !u!4 &621677547
 Transform:
   m_ObjectHideFlags: 0
