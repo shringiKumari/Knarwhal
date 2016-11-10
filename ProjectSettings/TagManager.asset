@@ -61,6 +61,9 @@ TagManager:
   - name: StabWound
     uniqueID: 2014211157
     locked: 0
+  - name: Face
+    uniqueID: 436154573
+    locked: 0
   - name: BloodiedHorn
     uniqueID: 1536232319
     locked: 0
