@@ -4,14 +4,13 @@ using System.Collections;
 
 public class GameWinScreen : MonoBehaviour {
 
-     private NarwhalScoring narwhalScoring;
-     public GameObject winscreen;
-	public GameObject winimage;
-     public GameObject hud;
-	Image winnerimage;
+    private NarwhalScoring narwhalScoring;
+    public GameObject winscreen;
+    public GameObject hud;
+	public GameObject winsprite;
 
-	public GameObject AndyReset;
-	public GameObject ThringiReset;
+	private GameObject AndyReset;
+	private GameObject ThringiReset;
 
 	public Sprite AndyWin;
 	public Sprite ThringiWin;
@@ -22,20 +21,17 @@ public class GameWinScreen : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-		AndyWin = (Sprite)Resources.Load ("/Sprites/AndyWinner");
-		ThringiWin = (Sprite)Resources.Load ("/Sprites/ThringiWinner");
+		
     }
 
 	public void WinnerUpdate(string winner)
 	{
-		winimage = GameObject.Find("WinnerSprite");
-		winnerimage = winimage.GetComponent<Image> ();
 		winText.text = winner + " is the Knarwhal Champion!";
 		if (winner == "Player One") {
-			winnerimage.sprite = (AndyWin);
+			//winimage.sprite = (AndyWin);
 		}
 		if (winner == "Player Two") {
-			winnerimage.sprite = (ThringiWin);
+			//winimage.sprite = (ThringiWin);
 		}
 	}
 
