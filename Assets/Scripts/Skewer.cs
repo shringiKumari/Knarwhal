@@ -14,6 +14,7 @@ public class Skewer : MonoBehaviour {
   private GameObject enemyParent;
   private GameObject enemyWound;
   private Collider2D enemyWoundBetween;
+  private GameObject enemyHornMask;
 
   private enum State {
     hunting, jabbed, skewered, cooldown
@@ -76,6 +77,7 @@ public class Skewer : MonoBehaviour {
             enemyWound.transform.rotation = parent.transform.rotation;
             // Check whether to activate skewer horn sprite
             enemyWoundBetween = enemyWound.transform.Find ("wbetween").GetComponent<Collider2D> ();
+            enemyHornMask = enemyWound.transform.Find ("HornMask").gameObject;
             UpdateSkewer ();
             // Spawn a stab hole sprite
             var stabhole = Instantiate (Resources.Load<GameObject> ("stabhole")).transform;
@@ -100,7 +102,9 @@ public class Skewer : MonoBehaviour {
   }
 
   void UpdateSkewer(){
-    skewer.gameObject.SetActive (hornCollider.IsTouching (enemyWoundBetween));
+    bool inWound = hornCollider.IsTouching (enemyWoundBetween);
+    skewer.gameObject.SetActive (inWound);
+    enemyHornMask.SetActive (inWound);
   }
 
   // Update is called once per frame

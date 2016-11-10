@@ -13,10 +13,7 @@ public class ParticleSpawn : MonoBehaviour {
     var o = new GameObject ();
     var sr = o.AddComponent<SpriteRenderer> ();
     sr.sprite = particleSprites [Random.Range (0, particleSprites.Length)];
-    bool foreground = Random.Range (0, 2) == 0;
-    if (foreground) {
-      sr.sortingLayerName = "Particles";
-    }
+    sr.sortingLayerName = "Particles";
     var t = o.transform;
     t.position = transform.position;
     var p = o.AddComponent<Particle> ();
