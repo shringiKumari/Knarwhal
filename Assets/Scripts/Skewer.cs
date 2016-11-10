@@ -45,7 +45,7 @@ public class Skewer : MonoBehaviour {
   void VelocityCheck(out float angle, out float magnitude){
     var rb_parent = parent.GetComponent<Rigidbody2D> ();
     var rb_enemy = enemyParent.GetComponent<Rigidbody2D> ();
-    var vel = rb_parent.velocity - rb_enemy.velocity;
+    var vel = rb_parent.velocity;
     var dir3 = rb_parent.transform.TransformVector (1, 0, 0);
     var dir = new Vector2 (dir3.x, dir3.y);
     angle = Mathf.Abs (Vector2.Angle (vel, dir));
