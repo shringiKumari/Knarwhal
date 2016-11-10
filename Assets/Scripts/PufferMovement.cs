@@ -22,8 +22,8 @@ public class PufferMovement : MonoBehaviour {
 	private float pufferSpwanYmin = 0.05f; 
 	private float pufferSpwanYmax = 0.9f;
 
-	private float scaleMin = 0.9f;
-	private float scaleMax = 2.0f;
+	private float scaleMin = 0.4f;
+	private float scaleMax = 1.2f;
 
 	private float redMin = 0.4f;
 	private float redMax = 0.7f;
@@ -102,19 +102,21 @@ public class PufferMovement : MonoBehaviour {
       if (gameObject.activeSelf == true) {
         if (bodyhit.tag == "AndyBody") {
           RegisterHit (bodyhit);
-          while (transform.localScale.x > float.MinValue) {
-            yield return new WaitForSeconds (0.01f);
+            while (transform.localScale.x > 0.1f) {
+               yield return new WaitForSeconds (0.01f);
             transform.localScale = Vector3.Lerp (transform.localScale, Vector3.zero, 0.1f);
           }
           gameObject.SetActive (false);
+          transform.localScale = new Vector3 (1, 1, 0);
         }
         if (bodyhit.tag == "ThringiBody") {
           RegisterHit (bodyhit);
-          while (transform.localScale.x > float.MinValue) {
-            yield return new WaitForSeconds (0.01f);
+            while (transform.localScale.x > 0.1f) {
+               yield return new WaitForSeconds (0.01f);
             transform.localScale = Vector3.Lerp (transform.localScale, Vector3.zero, 0.1f);
           }
           gameObject.SetActive (false);
+          transform.localScale = new Vector3 (1, 1, 0);
         }
       }
     }

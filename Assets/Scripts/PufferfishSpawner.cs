@@ -7,10 +7,10 @@ public class PufferfishSpawner : MonoBehaviour {
 	[SerializeField]
 	private GameObject pufferfishReference;
 	private float startTimer = 0f;
-	private float spawnThreshholdTimer = 2f;
+	private float spawnThreshholdTimer = 1f;
 
-	private float screenLimitMax = 15f;
-	private float screenLimitMin = -15f;
+	private float screenLimitMax;
+	private float screenLimitMin;
 
      private List<GameObject> pufferfishList = new List<GameObject> ();
 
