@@ -281,11 +281,7 @@ MonoBehaviour:
   Thringi: {fileID: 202410981}
   winscreen: {fileID: 1052857529}
   hud: {fileID: 1250178666}
-<<<<<<< HEAD
   WinScore: 3
-=======
-  WinScore: 5
->>>>>>> 5bb03d2c91f17941864dc1d2a85f97ce6546c461
 --- !u!4 &599790433
 Transform:
   m_ObjectHideFlags: 0
