@@ -118,7 +118,7 @@ public class Skewer : MonoBehaviour {
     }
     else if (state == State.skewered) {
       UpdateSkewer ();
-      if (lastChangeTime + 3 < Time.time) {
+      if (lastChangeTime + 6 < Time.time) {
         DisableWoundAndSkewer ();
         SetState (State.cooldown);
       }
