@@ -20,18 +20,18 @@ public class GameWinScreen : MonoBehaviour {
 
 
     // Use this for initialization
-    void Start () {
-		
+	void Start () {
     }
 
 	public void WinnerUpdate(string winner)
 	{
+		var victorysprite = winsprite.GetComponent<VictorySprite> ();
 		winText.text = winner + " is the Knarwhal Champion!";
 		if (winner == "Player One") {
-			//winimage.sprite = (AndyWin);
+			victorysprite.SpriteUpdate (AndyWin);
 		}
 		if (winner == "Player Two") {
-			//winimage.sprite = (ThringiWin);
+			victorysprite.SpriteUpdate (ThringiWin);
 		}
 	}
 
