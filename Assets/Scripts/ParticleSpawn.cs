@@ -5,22 +5,26 @@ public class ParticleSpawn : MonoBehaviour {
 
   private Sprite[] particleSprites;
 
-  private float particleProbability = 0.3f;
+  private float particleProbability = 0.7f;
+
+  private float created;
 
   private void SpawnParticle(){
     var p = new GameObject ();
-    Debug.Log ("Layer: " + LayerMask.NameToLayer ("Particles"));
-    p.layer = LayerMask.NameToLayer ("Particles");
     var sr = p.AddComponent<SpriteRenderer> ();
     sr.sprite = particleSprites [Random.Range (0, particleSprites.Length)];
+    if (Random.Range (0, 2) == 0) {
+      sr.sortingLayerName = "Particles";
+    }
     var t = p.transform;
     t.position = transform.position;
     p.AddComponent<Particle> ();
-    //Debug.Log ("Spawn particle!");
   }
 
 	// Use this for initialization
 	void Start () {
+    created = Time.time;
+
     particleSprites = new[]{
       Resources.Load<Sprite>("blood1"),
       Resources.Load<Sprite>("blood2")
@@ -28,8 +32,13 @@ public class ParticleSpawn : MonoBehaviour {
 	}
 	
   void FixedUpdate(){
-    if (Random.Range (0f, 1f) < particleProbability) {
+    var dt = Time.time - created;
+    var prob = particleProbability / (1f + dt * 1.5f);
+    if (Random.Range (0f, 1f) < prob) {
       SpawnParticle ();
+    }
+    if (prob <= 0.01f) {
+      Destroy (this);
     }
   }
 }
