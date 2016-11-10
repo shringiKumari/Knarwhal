@@ -674,7 +674,7 @@ MonoBehaviour:
   dash: X
   hornAngle: 0
   thrust: 1.5
-  movementThrust: 0.4
+  movementThrust: 1
   rb: {fileID: 0}
 --- !u!114 &114000013632856622
 MonoBehaviour:
