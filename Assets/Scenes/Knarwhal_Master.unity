@@ -414,7 +414,7 @@ MonoBehaviour:
   Thringi: {fileID: 202410981}
   winscreen: {fileID: 1052857529}
   hud: {fileID: 1250178666}
-  WinScore: 1
+  WinScore: 5
 --- !u!4 &599790433
 Transform:
   m_ObjectHideFlags: 0
