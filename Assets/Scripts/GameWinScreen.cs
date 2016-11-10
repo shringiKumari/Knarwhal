@@ -6,10 +6,15 @@ public class GameWinScreen : MonoBehaviour {
 
      private NarwhalScoring narwhalScoring;
      public GameObject winscreen;
+	public GameObject winimage;
      public GameObject hud;
+	Image winnerimage;
 
 	public GameObject AndyReset;
 	public GameObject ThringiReset;
+
+	public Sprite AndyWin;
+	public Sprite ThringiWin;
 
 	[SerializeField]
 	public Text winText;
@@ -17,12 +22,21 @@ public class GameWinScreen : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-
+		AndyWin = (Sprite)Resources.Load ("/Sprites/AndyWinner");
+		ThringiWin = (Sprite)Resources.Load ("/Sprites/ThringiWinner");
     }
 
 	public void WinnerUpdate(string winner)
 	{
-		winText.text = winner;
+		winimage = GameObject.Find("WinnerSprite");
+		winnerimage = winimage.GetComponent<Image> ();
+		winText.text = winner + " is the Knarwhal Champion!";
+		if (winner == "Player One") {
+			winnerimage.sprite = (AndyWin);
+		}
+		if (winner == "Player Two") {
+			winnerimage.sprite = (ThringiWin);
+		}
 	}
 
 	public void PlayClick()
@@ -39,7 +53,6 @@ public class GameWinScreen : MonoBehaviour {
 		Aclearwounds.ClearWounds ();
 		var Tclearwounds = AndyReset.GetComponent<NarwhalReset> ();
 		Tclearwounds.ClearWounds ();
-
         winscreen.SetActive(false);
     }
 

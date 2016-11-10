@@ -75,17 +75,16 @@ public class NarwhalScoring : MonoBehaviour {
   private void WinCheck() {
     if (AndyScore == WinScore) {
       GameOver ();
-			WinText = "Player One wins! Best Knarwhal!";
+			WinText = "Player One";
     }
 
     if(ThringiScore == WinScore) {
       GameOver ();
-			WinText = "Player Two wins! Best Knarwhal!";
+			WinText = "Player Two";
 	}
 
 		var wintext = winscreen.GetComponent<GameWinScreen> ();
 		wintext.WinnerUpdate (WinText);
-
 	}
 
 }

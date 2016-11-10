@@ -5,6 +5,7 @@ using System.Collections;
 public class GameEntryScreen : MonoBehaviour {
 
 	private Button button;
+	private GameObject controlinfo;
 	private Text readySetJoust;
     public GameObject andy;
     public GameObject thringi;
@@ -17,10 +18,12 @@ public class GameEntryScreen : MonoBehaviour {
 		GameObject go = GameObject.FindGameObjectWithTag("ReadySetJoust");
 		readySetJoust = go.GetComponent<Text> ();
 		readySetJoust.gameObject.SetActive (false);
+		controlinfo = GameObject.Find ("ControlInfo");
 	}
 
 	public void OnClick (){
 		button.gameObject.SetActive(false);
+		controlinfo.SetActive (false);
 		StartCoroutine(Tick());
     }
 
