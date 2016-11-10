@@ -42,6 +42,16 @@ public class Skewer : MonoBehaviour {
     return lastPos;
   }
 
+  void VelocityCheck(out float angle, out float magnitude){
+    var rb_parent = parent.GetComponent<Rigidbody2D> ();
+    var rb_enemy = enemyParent.GetComponent<Rigidbody2D> ();
+    var vel = rb_parent.velocity - rb_enemy.velocity;
+    var dir3 = rb_parent.transform.TransformVector (1, 0, 0);
+    var dir = new Vector2 (dir3.x, dir3.y);
+    angle = Mathf.Abs (Vector2.Angle (vel, dir));
+    magnitude = vel.magnitude;
+  }
+
   void OnTriggerEnter2D(Collider2D enemy) {
     
     if (state == State.jabbed && enemy.name == "VitalConfirm") {
@@ -57,22 +67,26 @@ public class Skewer : MonoBehaviour {
         // Find wound location
         var pos = FindEntryWound(enemy);
         if (enemy.OverlapPoint (pos)) {
-          // Activate and configure wound
-          enemyWound = enemyParent.transform.Find ("wound").gameObject;
-          enemyWound.gameObject.SetActive (true);
-          enemyWound.transform.position = pos;
-          enemyWound.transform.rotation = parent.transform.rotation;
-          // Check whether to activate skewer horn sprite
-          enemyWoundBetween = enemyWound.transform.Find ("wbetween").GetComponent<Collider2D>();
-          UpdateSkewer ();
-          // Spawn a stab hole sprite
-          var stabhole = Instantiate (Resources.Load<GameObject> ("stabhole")).transform;
-          stabhole.parent = enemyParent.transform;
-          stabhole.position = pos;
-          stabhole.rotation = parent.transform.rotation;
-          // Register the skewer
-          NarwhalScoring.narwhalScoring.ScoreHit (enemyParent);
-          SetState (State.jabbed);
+          float angle; float magnitude;
+          VelocityCheck (out angle, out magnitude);
+          if (magnitude > 3f && angle < 180f) {
+            // Activate and configure wound
+            enemyWound = enemyParent.transform.Find ("wound").gameObject;
+            enemyWound.gameObject.SetActive (true);
+            enemyWound.transform.position = pos;
+            enemyWound.transform.rotation = parent.transform.rotation;
+            // Check whether to activate skewer horn sprite
+            enemyWoundBetween = enemyWound.transform.Find ("wbetween").GetComponent<Collider2D> ();
+            UpdateSkewer ();
+            // Spawn a stab hole sprite
+            var stabhole = Instantiate (Resources.Load<GameObject> ("stabhole")).transform;
+            stabhole.parent = enemyParent.transform;
+            stabhole.position = pos;
+            stabhole.rotation = parent.transform.rotation;
+            // Register the skewer
+            NarwhalScoring.narwhalScoring.ScoreHit (enemyParent);
+            SetState (State.jabbed);
+          }
         }
       }
     }
@@ -104,7 +118,7 @@ public class Skewer : MonoBehaviour {
     }
     else if (state == State.skewered) {
       UpdateSkewer ();
-      if (lastChangeTime + 6 < Time.time) {
+      if (lastChangeTime + 3 < Time.time) {
         DisableWoundAndSkewer ();
         SetState (State.cooldown);
       }
