@@ -17,7 +17,7 @@ public class NarwhalMovement : MonoBehaviour
      public float movementThrust;
 
      private float dashCoolDownTimer = 3.0f;
-     private float startTimer = 3.0f;
+     private float startTimer;
 
 
      public Rigidbody2D rb;
@@ -42,6 +42,8 @@ public class NarwhalMovement : MonoBehaviour
           AddWall (w / 2 + 0.5f, 0, 1, h);
           AddWall (0, -h / 2 - 0.5f, w, 1);
           AddWall (0, h / 2 + 0.5f, w, 1);
+
+          startTimer = dashCoolDownTimer;
 
      }
 
