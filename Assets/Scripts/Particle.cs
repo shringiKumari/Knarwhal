@@ -8,7 +8,7 @@ public class Particle : MonoBehaviour {
   private Vector3 scale;
   private int currentPhase = 0;
 
-  private Vector3 dir;
+  public Vector3 dir;
 
   delegate Vector3 Scale(float dt, Particle p);
   delegate Vector3 Pos(float dt, Particle p);
@@ -37,9 +37,6 @@ public class Particle : MonoBehaviour {
     phaseBegan = Time.time;
     pos = transform.position;
     scale = transform.localScale * Random.Range (0.1f, 0.6f);
-
-    var angle = Random.Range (0f, 360f) * Mathf.Deg2Rad;
-    dir = new Vector3 (Mathf.Cos(angle), Mathf.Sin(angle));
 	}
 	
   void UpdateParticle() {
