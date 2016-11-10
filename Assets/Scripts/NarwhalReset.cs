@@ -13,12 +13,12 @@ public class NarwhalReset : MonoBehaviour {
 
 	}
 	
-	public void ClearWounds(){
+	public void ClearWounds(){ // remove wounds and reposition / rerotated the narwhals
 		wounds = GameObject.FindGameObjectsWithTag("Wound");
 		foreach (GameObject wound in wounds) {
 			Destroy (wound);
 		}
 		transform.position = new Vector2(x, y);
-		//transform.Rotate (Vector3(0, 0, 0), Space.World);
+		transform.rotation = Quaternion.identity;
 	}
 }
