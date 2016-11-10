@@ -1,8 +1,8 @@
 ﻿using UnityEngine;
 
 class KeyboardInput {
-  KeyCode[] rotateLeft = { KeyCode.A, KeyCode.J };
-  KeyCode[] rotateRight = { KeyCode.D, KeyCode.L };
+  KeyCode[] rotateLeft = { KeyCode.D, KeyCode.L };
+  KeyCode[] rotateRight = { KeyCode.A, KeyCode.J };
   KeyCode[] move = { KeyCode.W, KeyCode.I };
   KeyCode[] dash = { KeyCode.Q, KeyCode.U };
   KeyCode[] spout = { KeyCode.E, KeyCode.O };
