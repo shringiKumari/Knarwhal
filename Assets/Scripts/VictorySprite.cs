@@ -11,6 +11,5 @@ public class VictorySprite : MonoBehaviour {
 	
 	public void SpriteUpdate(Sprite winner) {
 		this.GetComponent<Image> ().sprite = winner;
-		Debug.Log ("update sprite");
 	}
 }
