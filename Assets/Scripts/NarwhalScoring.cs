@@ -57,7 +57,7 @@ public class NarwhalScoring : MonoBehaviour {
     WinCheck(); //check winstate
   }
 
-  private void GameOver(){
+   public IEnumerator GameOver(){
      AndyScore = 0;
      ThringiScore = 0;
      AndyDamage = 0;
@@ -68,18 +68,19 @@ public class NarwhalScoring : MonoBehaviour {
      if (ScoreThringi != null) {
           ScoreThringi.text = "0"; 
      }// Reset score on HUD
+     yield return new WaitForSeconds(0.7f);
      hud.SetActive(false);
      winscreen.SetActive (true);
   }
 
   private void WinCheck() {
     if (AndyScore == WinScore) {
-      GameOver ();
+               StartCoroutine(GameOver());
 			WinText = "Player One";
     }
 
     if(ThringiScore == WinScore) {
-      GameOver ();
+               StartCoroutine(GameOver());
 			WinText = "Player Two";
 	}
 
