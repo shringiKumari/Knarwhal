@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 68259f19bbd6d024288e108802dedf29
-timeCreated: 1478620835
+timeCreated: 1478795016
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -58,7 +58,7 @@ TextureImporter:
       name: thringi
       rect:
         serializedVersion: 2
-        x: 1
+        x: 0
         y: 0
         width: 295
         height: 236
@@ -73,7 +73,7 @@ TextureImporter:
         serializedVersion: 2
         x: 295
         y: 0
-        width: 120
+        width: 125
         height: 236
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
