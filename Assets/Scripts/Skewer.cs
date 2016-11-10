@@ -15,6 +15,8 @@ public class Skewer : MonoBehaviour {
   private GameObject enemyWound;
   private Collider2D enemyWoundBetween;
   private GameObject enemyHornMask;
+  private GameObject enemyFaceSmile;
+  private GameObject enemyFaceScream;
 
   private enum State {
     hunting, jabbed, skewered, cooldown
@@ -70,14 +72,20 @@ public class Skewer : MonoBehaviour {
           float angle; float magnitude;
           VelocityCheck (out angle, out magnitude);
           if (magnitude > 3f && angle < 180f) {
-            // Activate and configure wound
+            // Acquire references from the enemy
             enemyWound = enemyParent.transform.Find ("wound").gameObject;
+            enemyWoundBetween = enemyWound.transform.Find ("wbetween").GetComponent<Collider2D> ();
+            enemyHornMask = enemyWound.transform.Find ("HornMask").gameObject;
+            enemyFaceSmile = enemyParent.transform.Find("facesmile").gameObject;
+            enemyFaceScream = enemyParent.transform.Find("facescream").gameObject;
+            // Scream in pain
+            enemyFaceSmile.SetActive(false);
+            enemyFaceScream.SetActive (true);
+            // Activate and configure wound
             enemyWound.gameObject.SetActive (true);
             enemyWound.transform.position = pos;
             enemyWound.transform.rotation = parent.transform.rotation;
             // Check whether to activate skewer horn sprite
-            enemyWoundBetween = enemyWound.transform.Find ("wbetween").GetComponent<Collider2D> ();
-            enemyHornMask = enemyWound.transform.Find ("HornMask").gameObject;
             UpdateSkewer ();
             // Spawn a stab hole sprite
             var stabhole = Instantiate (Resources.Load<GameObject> ("stabhole")).transform;
@@ -99,6 +107,9 @@ public class Skewer : MonoBehaviour {
     var parent = transform.parent.gameObject;
     var skewer = parent.transform.Find ("skewer");
     skewer.gameObject.SetActive (false);
+    // Stop screaming in pain
+    enemyFaceSmile.SetActive(true);
+    enemyFaceScream.SetActive (false);
   }
 
   void UpdateSkewer(){
