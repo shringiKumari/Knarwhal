@@ -10,15 +10,26 @@ public class ParticleSpawn : MonoBehaviour {
   private float created;
 
   private void SpawnParticle(){
-    var p = new GameObject ();
-    var sr = p.AddComponent<SpriteRenderer> ();
+    var o = new GameObject ();
+    var sr = o.AddComponent<SpriteRenderer> ();
     sr.sprite = particleSprites [Random.Range (0, particleSprites.Length)];
-    if (Random.Range (0, 2) == 0) {
+    bool foreground = Random.Range (0, 2) == 0;
+    if (foreground) {
       sr.sortingLayerName = "Particles";
     }
-    var t = p.transform;
+    var t = o.transform;
     t.position = transform.position;
-    p.AddComponent<Particle> ();
+    var p = o.AddComponent<Particle> ();
+
+    float angle;
+    //angle = Random.Range (160f, 200f) * Mathf.Deg2Rad;
+    angle = Random.Range (-20f, 20f) * Mathf.Deg2Rad;
+    if (foreground) {
+      //angle = Random.Range (160f, 200f) * Mathf.Deg2Rad;
+    }
+    else {
+    }
+    p.dir = transform.TransformVector(new Vector3 (Mathf.Cos(angle), Mathf.Sin(angle))) * transform.localScale.x;
   }
 
 	// Use this for initialization
