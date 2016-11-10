@@ -24,7 +24,6 @@ public class WinScreenButtonScript : MonoBehaviour {
                (Input.GetButtonDown("Quit"))||
                (Input.GetButtonDown("Quit_W"))){
 			gameWinScreen.QuitClick ();
-               Debug.Log("Game Quit");
 		}
 	
 	}
