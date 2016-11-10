@@ -21,14 +21,7 @@ public class ParticleSpawn : MonoBehaviour {
     t.position = transform.position;
     var p = o.AddComponent<Particle> ();
 
-    float angle;
-    //angle = Random.Range (160f, 200f) * Mathf.Deg2Rad;
-    angle = Random.Range (-20f, 20f) * Mathf.Deg2Rad;
-    if (foreground) {
-      //angle = Random.Range (160f, 200f) * Mathf.Deg2Rad;
-    }
-    else {
-    }
+    float angle = Random.Range (-20f, 20f) * Mathf.Deg2Rad;
     p.dir = transform.TransformVector(new Vector3 (Mathf.Cos(angle), Mathf.Sin(angle))) * transform.localScale.x;
   }
 
